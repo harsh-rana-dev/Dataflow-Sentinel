@@ -1,0 +1,23 @@
+# Core environment management
+python-dotenv>=1.0.0
+
+# Configuration parsing
+PyYAML>=6.0.1
+
+# Data handling
+pandas>=2.0.0
+
+# Data ingestion
+yfinance>=0.2.36
+
+# Data validation
+pydantic>=2.5.0
+
+# Database
+SQLAlchemy>=2.0.0
+psycopg2-binary>=2.9.9
+
+# Testing
+pytest>=7.4.0
+
+
