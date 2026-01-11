@@ -1,6 +1,4 @@
-# =========================
 # Python
-# =========================
 __pycache__/
 *.py[cod]
 *.pyo
@@ -10,43 +8,31 @@ __pycache__/
 .venv/
 venv/
 
-# =========================
 # Environment Variables
-# =========================
 .env
 
-# =========================
 # Logs & Runtime Artifacts
-# =========================
 logs/*.json
 logs/*.log
 
-# =========================
 # Data Outputs (Generated)
-# =========================
 data/bronze/*
 data/silver/*
 data/gold/*
-
+#-------------------------
 !data/gold/aggregates.csv
 !data/gold/data_freshness.json
 
-# =========================
 # Testing
-# =========================
 .pytest_cache/
 .coverage
 htmlcov/
 
-# =========================
 # Docker
-# =========================
 *.log
 docker-compose.override.yml
 
-# =========================
 # OS / Editor
-# =========================
 .DS_Store
 Thumbs.db
 .vscode/

@@ -4,3 +4,7 @@ install: requirements.txt
 run:
 	python src/pipeline.py
 
+test:
+	python tests/
+
+	
