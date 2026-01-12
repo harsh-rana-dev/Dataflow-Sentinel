@@ -5,6 +5,6 @@ run:
 	python src/pipeline.py
 
 test:
-	python tests/
+	python -m pytest tests/
 
 	
