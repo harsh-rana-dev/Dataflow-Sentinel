@@ -1,3 +1,4 @@
+from pathlib import Path
 import pandas as pd
 import pytest
 from src.ingestion import ingest_all_assets, BRONZE_DIR
@@ -25,8 +26,9 @@ def test_bronze_files_created(patched_ingestion):
     files = ingest_all_assets(start_date="2020-01-01", end_date="2020-01-05")
     assert len(files) == len(TEST_ASSETS)
     for f in files:
-        assert f.exists()  # file exists
-        assert f.stat().st_size > 0  # file is not empty
+        f_path = Path(f)  # convert string to Path
+        assert f_path.exists()         # file exists
+        assert f_path.stat().st_size > 0  # file is not empty
 
 # ----------------------------
 # 3️⃣ Test: CSV Columns
