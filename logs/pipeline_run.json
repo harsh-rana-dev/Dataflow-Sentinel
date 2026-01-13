@@ -1,0 +1,23 @@
+{"time": "2026-01-13 18:49:24", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
+{"time": "2026-01-13 18:49:29", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
+{"time": "2026-01-13 18:49:29", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-11.csv"}
+{"time": "2026-01-13 18:49:29", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-11_silver_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:29", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-11.csv"}
+{"time": "2026-01-13 18:49:29", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:29", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-13_silver_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:29", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:29", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-11.csv"}
+{"time": "2026-01-13 18:49:29", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-11_silver_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:30", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-11.csv"}
+{"time": "2026-01-13 18:49:30", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:30", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-13_silver_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:30", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:30", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-11.csv"}
+{"time": "2026-01-13 18:49:30", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-11_silver_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:30", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-11.csv"}
+{"time": "2026-01-13 18:49:30", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:30", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-13_silver_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:31", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-13.csv"}
+{"time": "2026-01-13 18:49:31", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
+{"time": "2026-01-13 18:49:31", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
+{"time": "2026-01-13 18:49:31", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
