@@ -1,9 +1,9 @@
-name: Daily Data Pipeline
+name: Data Pipeline
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 13 * * *" # 7:00 PM IST
+    - cron: "*/2 * * * *" # Every 2 minutes for testing
 
 jobs:
   run-pipeline:
