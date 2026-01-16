@@ -16,12 +16,10 @@ from sqlalchemy import (
 )
 from sqlalchemy.dialects.postgresql import insert
 
-
 load_dotenv()
 
-
 # ----------------------------
-# 1️⃣ Database Engine
+# 1️⃣ Database Engine (lazy)
 # ----------------------------
 
 def get_engine():
@@ -32,8 +30,16 @@ def get_engine():
     )
 
 
-engine = get_engine()
 metadata = MetaData()
+_engine = None
+
+
+def get_db_engine():
+    global _engine
+    if _engine is None:
+        _engine = get_engine()
+        metadata.create_all(_engine)
+    return _engine
 
 
 # ----------------------------
@@ -55,25 +61,22 @@ market_data = Table(
 )
 
 
-metadata.create_all(engine)
-
-
 # ----------------------------
-# 3️⃣ Insert / Upsert Logic (Batched)
+# 3️⃣ Insert / Upsert Logic
 # ----------------------------
 
 def insert_silver_dataframe(df: pd.DataFrame, batch_size: int = 500) -> None:
-
-
     records = df.to_dict(orient="records")
     if not records:
         return
 
+    engine = get_db_engine()
+
     with engine.begin() as conn:
         for i in range(0, len(records), batch_size):
-            batch = records[i:i + batch_size]
+            batch = records[i : i + batch_size]
             stmt = insert(market_data).values(batch)
-            stmt = stmt.on_conflict_do_nothing(index_elements=["symbol", "date"])
+            stmt = stmt.on_conflict_do_nothing(
+                index_elements=["symbol", "date"]
+            )
             conn.execute(stmt)
-
-            
