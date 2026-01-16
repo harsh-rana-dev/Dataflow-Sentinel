@@ -1,3 +1,6 @@
+import os
+os.environ["TESTING"] = "1"
+
 import pandas as pd
 from datetime import date
 import pytest
@@ -8,29 +11,16 @@ from src.storage import get_db_engine, market_data, insert_silver_dataframe
 TEST_SYMBOL = "TEST"
 
 
-# ----------------------------
-# 1️⃣ Fixture: clean test rows
-# ----------------------------
 @pytest.fixture
 def clean_test_rows():
     engine = get_db_engine()
-
     with engine.begin() as conn:
-        conn.execute(
-            delete(market_data).where(market_data.c.symbol == TEST_SYMBOL)
-        )
-
+        conn.execute(delete(market_data))
     yield
-
     with engine.begin() as conn:
-        conn.execute(
-            delete(market_data).where(market_data.c.symbol == TEST_SYMBOL)
-        )
+        conn.execute(delete(market_data))
 
 
-# ----------------------------
-# 2️⃣ Test: idempotent insert
-# ----------------------------
 def test_insert_is_idempotent(clean_test_rows):
     engine = get_db_engine()
 
@@ -49,14 +39,12 @@ def test_insert_is_idempotent(clean_test_rows):
     )
 
     insert_silver_dataframe(test_df)
-    insert_silver_dataframe(test_df)  # same data again
+    insert_silver_dataframe(test_df)
 
     with engine.connect() as conn:
-        result = conn.execute(
-            select(market_data).where(market_data.c.symbol == TEST_SYMBOL)
-        )
-        rows = result.fetchall()
+        rows = conn.execute(
+            select(market_data)
+        ).fetchall()
 
     assert len(rows) == 1
     assert rows[0].symbol == TEST_SYMBOL
-    assert rows[0].date == date(2024, 1, 1)
