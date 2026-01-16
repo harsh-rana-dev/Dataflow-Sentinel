@@ -16,7 +16,12 @@ from sqlalchemy import (
 )
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.dialects.sqlite import insert as sqlite_insert
-from logger import logger
+
+# Use src.logger to avoid ModuleNotFoundError in GitHub Actions
+try:
+    from src.logger import logger
+except ImportError:
+    from logger import logger
 
 load_dotenv()
 
@@ -28,14 +33,9 @@ metadata = MetaData()
 _engine = None
 
 def get_engine():
-    """
-    - SQLite in-memory for tests
-    - Postgres for prod/dev
-    """
     if os.getenv("TESTING") == "1":
         return create_engine("sqlite:///:memory:", echo=False)
 
-    # Building connection string from env vars
     user = os.getenv('DB_USER')
     password = os.getenv('DB_PASSWORD')
     host = os.getenv('DB_HOST')
@@ -49,20 +49,16 @@ def get_db_engine():
     global _engine
     if _engine is None:
         _engine = get_engine()
-        # metadata.create_all is the command that actually builds the tables in Neon
         metadata.create_all(_engine)
     return _engine
 
 def init_db():
-    """
-    Explicitly initializes the database connection and creates schema.
-    Call this at the start of the pipeline to ensure Neon is ready.
-    """
+    """Forces engine creation and table schema deployment immediately."""
     engine = get_db_engine()
     try:
         with engine.connect() as conn:
             conn.execute(text("SELECT 1"))
-        logger.info(f"[STORAGE] Database initialized. Target: {engine.url.host}")
+        logger.info(f"[STORAGE] Database initialized. Host: {engine.url.host}")
     except Exception as e:
         logger.error(f"[STORAGE] Database connection failed: {e}")
         raise e
@@ -92,7 +88,6 @@ market_data = Table(
 
 def insert_silver_dataframe(df: pd.DataFrame, batch_size: int = 500) -> None:
     if df is None or df.empty:
-        logger.warning("[STORAGE] No data to insert.")
         return
 
     records = df.to_dict(orient="records")
