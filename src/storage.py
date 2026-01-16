@@ -1,7 +1,6 @@
 import os
 import pandas as pd
 from dotenv import load_dotenv
-
 from sqlalchemy import (
     create_engine,
     MetaData,
@@ -13,9 +12,11 @@ from sqlalchemy import (
     Date,
     Float,
     UniqueConstraint,
+    text
 )
 from sqlalchemy.dialects.postgresql import insert as pg_insert
 from sqlalchemy.dialects.sqlite import insert as sqlite_insert
+from logger import logger
 
 load_dotenv()
 
@@ -26,7 +27,6 @@ load_dotenv()
 metadata = MetaData()
 _engine = None
 
-
 def get_engine():
     """
     - SQLite in-memory for tests
@@ -35,20 +35,38 @@ def get_engine():
     if os.getenv("TESTING") == "1":
         return create_engine("sqlite:///:memory:", echo=False)
 
-    return create_engine(
-        f"postgresql+psycopg2://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}"
-        f"@{os.getenv('DB_HOST')}:{os.getenv('DB_PORT', 5432)}/{os.getenv('DB_NAME')}",
-        echo=False,
-    )
-
+    # Building connection string from env vars
+    user = os.getenv('DB_USER')
+    password = os.getenv('DB_PASSWORD')
+    host = os.getenv('DB_HOST')
+    port = os.getenv('DB_PORT', 5432)
+    name = os.getenv('DB_NAME')
+    
+    conn_str = f"postgresql+psycopg2://{user}:{password}@{host}:{port}/{name}"
+    return create_engine(conn_str, echo=False)
 
 def get_db_engine():
     global _engine
     if _engine is None:
         _engine = get_engine()
+        # metadata.create_all is the command that actually builds the tables in Neon
         metadata.create_all(_engine)
     return _engine
 
+def init_db():
+    """
+    Explicitly initializes the database connection and creates schema.
+    Call this at the start of the pipeline to ensure Neon is ready.
+    """
+    engine = get_db_engine()
+    try:
+        with engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+        logger.info(f"[STORAGE] Database initialized. Target: {engine.url.host}")
+    except Exception as e:
+        logger.error(f"[STORAGE] Database connection failed: {e}")
+        raise e
+    return engine
 
 # ----------------------------
 # 2️⃣ Table definition
@@ -68,16 +86,16 @@ market_data = Table(
     UniqueConstraint("symbol", "date", name="uq_symbol_date"),
 )
 
-
 # ----------------------------
-# 3️⃣ Insert logic (DB-aware)
+# 3️⃣ Insert logic
 # ----------------------------
 
 def insert_silver_dataframe(df: pd.DataFrame, batch_size: int = 500) -> None:
-    records = df.to_dict(orient="records")
-    if not records:
+    if df is None or df.empty:
+        logger.warning("[STORAGE] No data to insert.")
         return
 
+    records = df.to_dict(orient="records")
     engine = get_db_engine()
 
     is_sqlite = engine.dialect.name == "sqlite"
@@ -94,5 +112,4 @@ def insert_silver_dataframe(df: pd.DataFrame, batch_size: int = 500) -> None:
                 stmt = stmt.on_conflict_do_nothing(
                     index_elements=["symbol", "date"]
                 )
-
             conn.execute(stmt)

@@ -6,16 +6,24 @@ from validation import (
     validate_bronze_csv,
     save_silver_dataframe,
 )
-from storage import insert_silver_dataframe
+# Added init_db to the imports
+from storage import insert_silver_dataframe, init_db
 from gold import run_gold_layer
 
 from logger import logger 
 
 BRONZE_DIR = Path("data/bronze")
 
-
 def run_pipeline() -> None:
     logger.info("[PIPELINE] Starting pipeline")
+
+    # 0️⃣ Database Setup (FORCED INITIALIZATION)
+    # This ensures tables are created in Neon even if no new data is found.
+    try:
+        init_db()
+    except Exception:
+        logger.error("[PIPELINE] Critical: Database setup failed. Exiting.")
+        return
 
     end_date = datetime.now(timezone.utc).date().isoformat()
 
@@ -30,42 +38,39 @@ def run_pipeline() -> None:
         logger.error(f"[PIPELINE] Ingestion failed: {e}")
         return
 
-
     # 2️⃣ Validation + Silver persistence
     bronze_files = list(BRONZE_DIR.glob("*.csv"))
 
     if not bronze_files:
-        logger.warning("[PIPELINE] No bronze files found")
-        return
+        logger.warning("[PIPELINE] No bronze files found in data/bronze. Check ingestion logs.")
+        # We don't return here so the Gold layer can still attempt to run if needed
+    else:
+        for bronze_file in bronze_files:
+            logger.info(f"[PIPELINE] Processing {bronze_file.name}")
 
-    for bronze_file in bronze_files:
-        logger.info(f"[PIPELINE] Processing {bronze_file.name}")
+            try:
+                silver_df = validate_bronze_csv(bronze_file)
+            except Exception as e:
+                logger.error(f"[PIPELINE] Validation failed for {bronze_file.name}: {e}")
+                continue
 
-        try:
-            silver_df = validate_bronze_csv(bronze_file)
-        except Exception as e:
-            logger.error(f"[PIPELINE] Validation failed for {bronze_file.name}: {e}")
-            continue
+            if silver_df.empty:
+                logger.warning(f"[PIPELINE] No valid rows in {bronze_file.name}, skipping")
+                continue
 
-        if silver_df.empty:
-            logger.warning(f"[PIPELINE] No valid rows in {bronze_file.name}, skipping")
-            continue
+            try:
+                silver_path = save_silver_dataframe(silver_df, bronze_file)
+                logger.info(f"[PIPELINE] Silver saved → {silver_path.name}")
+            except Exception as e:
+                logger.error(f"[PIPELINE] Failed to save silver for {bronze_file.name}: {e}")
+                continue
 
-        try:
-            silver_path = save_silver_dataframe(silver_df, bronze_file)
-            logger.info(f"[PIPELINE] Silver saved → {silver_path.name}")
-        except Exception as e:
-            logger.error(f"[PIPELINE] Failed to save silver for {bronze_file.name}: {e}")
-            continue
-
-
-        # 3️⃣ Store in Postgres
-        try:
-            insert_silver_dataframe(silver_df)
-            logger.info(f"[PIPELINE] Data inserted into database for {bronze_file.name}")
-        except Exception as e:
-            logger.error(f"[PIPELINE] Database insert failed for {bronze_file.name}: {e}")
-
+            # 3️⃣ Store in Neon/Postgres
+            try:
+                insert_silver_dataframe(silver_df)
+                logger.info(f"[PIPELINE] Data inserted into database for {bronze_file.name}")
+            except Exception as e:
+                logger.error(f"[PIPELINE] Database insert failed for {bronze_file.name}: {e}")
 
     # 4️⃣ Gold layer
     try:
@@ -76,7 +81,6 @@ def run_pipeline() -> None:
         logger.error(f"[PIPELINE] Gold layer failed: {e}")
 
     logger.info("[PIPELINE] Pipeline finished successfully")
-
 
 if __name__ == "__main__":
     run_pipeline()

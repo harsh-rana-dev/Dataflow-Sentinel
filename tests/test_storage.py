@@ -1,4 +1,5 @@
 import os
+# Force TESTING mode before any other imports so storage.py picks up SQLite
 os.environ["TESTING"] = "1"
 
 import pandas as pd
@@ -6,24 +7,29 @@ from datetime import date
 import pytest
 
 from sqlalchemy import select, delete
+# Ensure we import from src.storage
 from src.storage import get_db_engine, market_data, insert_silver_dataframe
 
 TEST_SYMBOL = "TEST"
 
+@pytest.fixture(scope="function")
+def engine():
+    """Provides a fresh engine for every test."""
+    # Calling get_db_engine() triggers metadata.create_all() for the SQLite engine
+    return get_db_engine()
 
 @pytest.fixture
-def clean_test_rows():
-    engine = get_db_engine()
+def clean_test_rows(engine):
+    """Cleans the table before and after each test."""
     with engine.begin() as conn:
         conn.execute(delete(market_data))
     yield
     with engine.begin() as conn:
         conn.execute(delete(market_data))
 
-
-def test_insert_is_idempotent(clean_test_rows):
-    engine = get_db_engine()
-
+def test_insert_is_idempotent(engine, clean_test_rows):
+    """Verifies that inserting the same data twice doesn't create duplicates."""
+    
     test_df = pd.DataFrame(
         [
             {
@@ -38,13 +44,15 @@ def test_insert_is_idempotent(clean_test_rows):
         ]
     )
 
+    # First Insert
     insert_silver_dataframe(test_df)
+    # Second Insert (Idempotency check)
     insert_silver_dataframe(test_df)
 
     with engine.connect() as conn:
-        rows = conn.execute(
-            select(market_data)
-        ).fetchall()
+        result = conn.execute(select(market_data))
+        rows = result.fetchall()
 
-    assert len(rows) == 1
+    # Assertions
+    assert len(rows) == 1, f"Expected 1 row, found {len(rows)}"
     assert rows[0].symbol == TEST_SYMBOL
