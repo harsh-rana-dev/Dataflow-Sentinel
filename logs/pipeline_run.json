@@ -81,3 +81,243 @@
 {"time": "2026-01-17 01:55:56", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
 {"time": "2026-01-17 01:55:56", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
 {"time": "2026-01-17 01:55:56", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
+{"time": "2026-01-17 19:02:31", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: :memory:"}
+{"time": "2026-01-17 19:02:31", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"time": "2026-01-17 19:02:31", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
+{"time": "2026-01-17 19:02:31", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
+{"time": "2026-01-17 19:02:31", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
+{"time": "2026-01-17 19:02:45", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
+{"time": "2026-01-17 19:02:45", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: dataflow_sentinel"}
+{"time": "2026-01-17 19:02:45", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"time": "2026-01-17 19:02:45", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
+{"time": "2026-01-17 19:02:47", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
+{"time": "2026-01-17 19:02:47", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
+{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
+{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
+{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
+{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
+{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
+{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
+{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
+{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[STORAGE] Inserting 2206 records."}
+{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
+{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
+{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[STORAGE] Inserting 2207 records."}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[STORAGE] Inserting 2208 records."}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
+{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
+{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
+{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-17.csv"}
+{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
+{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
+{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
+{"time": "2026-01-17 19:05:37", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: :memory:"}
+{"time": "2026-01-17 19:05:37", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"time": "2026-01-17 19:05:37", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
+{"time": "2026-01-17 19:05:37", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
+{"time": "2026-01-17 19:05:37", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
+{"time": "2026-01-18 00:45:41", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
+{"time": "2026-01-18 00:45:55", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: neondb"}
+{"time": "2026-01-18 00:45:55", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"time": "2026-01-18 00:45:55", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
+{"time": "2026-01-18 00:45:57", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
+{"time": "2026-01-18 00:45:57", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
+{"time": "2026-01-18 00:45:57", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:45:57", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
+{"time": "2026-01-18 00:46:01", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
+{"time": "2026-01-18 00:46:01", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
+{"time": "2026-01-18 00:46:01", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:01", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
+{"time": "2026-01-18 00:46:05", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
+{"time": "2026-01-18 00:46:05", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:05", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:05", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
+{"time": "2026-01-18 00:46:08", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:08", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
+{"time": "2026-01-18 00:46:09", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:09", "level": "INFO", "message": "[STORAGE] Inserting 2206 records."}
+{"time": "2026-01-18 00:46:12", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
+{"time": "2026-01-18 00:46:12", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
+{"time": "2026-01-18 00:46:12", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:12", "level": "INFO", "message": "[STORAGE] Inserting 2207 records."}
+{"time": "2026-01-18 00:46:17", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
+{"time": "2026-01-18 00:46:17", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:17", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:17", "level": "INFO", "message": "[STORAGE] Inserting 2208 records."}
+{"time": "2026-01-18 00:46:21", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:21", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
+{"time": "2026-01-18 00:46:21", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:21", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
+{"time": "2026-01-18 00:46:24", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
+{"time": "2026-01-18 00:46:24", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
+{"time": "2026-01-18 00:46:25", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:25", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
+{"time": "2026-01-18 00:46:28", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
+{"time": "2026-01-18 00:46:28", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:28", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:28", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
+{"time": "2026-01-18 00:46:31", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-17.csv"}
+{"time": "2026-01-18 00:46:31", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
+{"time": "2026-01-18 00:46:31", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
+{"time": "2026-01-18 00:46:31", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
+{"time": "2026-01-18 00:54:05", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: :memory:"}
+{"time": "2026-01-18 00:54:05", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"time": "2026-01-18 00:54:05", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
+{"time": "2026-01-18 00:54:05", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
+{"time": "2026-01-18 00:54:05", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
+{"time": "2026-01-18 00:54:09", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
+{"time": "2026-01-18 00:54:23", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: neondb"}
+{"time": "2026-01-18 00:54:23", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"time": "2026-01-18 00:54:23", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
+{"time": "2026-01-18 00:54:25", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
+{"time": "2026-01-18 00:54:25", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
+{"time": "2026-01-18 00:54:25", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:25", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
+{"time": "2026-01-18 00:54:29", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
+{"time": "2026-01-18 00:54:29", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
+{"time": "2026-01-18 00:54:29", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:29", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
+{"time": "2026-01-18 00:54:32", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
+{"time": "2026-01-18 00:54:32", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:32", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:32", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
+{"time": "2026-01-18 00:54:35", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:35", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
+{"time": "2026-01-18 00:54:35", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:35", "level": "INFO", "message": "[STORAGE] Inserting 2206 records."}
+{"time": "2026-01-18 00:54:38", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
+{"time": "2026-01-18 00:54:38", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
+{"time": "2026-01-18 00:54:39", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:39", "level": "INFO", "message": "[STORAGE] Inserting 2207 records."}
+{"time": "2026-01-18 00:54:42", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
+{"time": "2026-01-18 00:54:42", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:42", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:42", "level": "INFO", "message": "[STORAGE] Inserting 2208 records."}
+{"time": "2026-01-18 00:54:45", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:45", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
+{"time": "2026-01-18 00:54:45", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:45", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
+{"time": "2026-01-18 00:54:48", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
+{"time": "2026-01-18 00:54:48", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
+{"time": "2026-01-18 00:54:48", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:48", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
+{"time": "2026-01-18 00:54:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
+{"time": "2026-01-18 00:54:50", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:51", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:51", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
+{"time": "2026-01-18 00:54:53", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-17.csv"}
+{"time": "2026-01-18 00:54:53", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
+{"time": "2026-01-18 00:54:54", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
+{"time": "2026-01-18 00:54:54", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
+{"time": "2026-01-18 01:14:16", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
+{"time": "2026-01-18 01:14:29", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: sentinel_db"}
+{"time": "2026-01-18 01:14:29", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"time": "2026-01-18 01:14:29", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
+{"time": "2026-01-18 01:14:32", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
+{"time": "2026-01-18 01:14:32", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
+{"time": "2026-01-18 01:14:32", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:32", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
+{"time": "2026-01-18 01:14:36", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
+{"time": "2026-01-18 01:14:36", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
+{"time": "2026-01-18 01:14:36", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:36", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
+{"time": "2026-01-18 01:14:40", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
+{"time": "2026-01-18 01:14:40", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:40", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:40", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
+{"time": "2026-01-18 01:14:42", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:42", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
+{"time": "2026-01-18 01:14:43", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:43", "level": "INFO", "message": "[STORAGE] Inserting 2206 records."}
+{"time": "2026-01-18 01:14:46", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
+{"time": "2026-01-18 01:14:46", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
+{"time": "2026-01-18 01:14:46", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:46", "level": "INFO", "message": "[STORAGE] Inserting 2207 records."}
+{"time": "2026-01-18 01:14:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
+{"time": "2026-01-18 01:14:50", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:50", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:50", "level": "INFO", "message": "[STORAGE] Inserting 2208 records."}
+{"time": "2026-01-18 01:14:54", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:54", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
+{"time": "2026-01-18 01:14:54", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:54", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
+{"time": "2026-01-18 01:14:56", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
+{"time": "2026-01-18 01:14:56", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
+{"time": "2026-01-18 01:14:57", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:57", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
+{"time": "2026-01-18 01:14:59", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
+{"time": "2026-01-18 01:14:59", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:59", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:14:59", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
+{"time": "2026-01-18 01:15:02", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-17.csv"}
+{"time": "2026-01-18 01:15:02", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
+{"time": "2026-01-18 01:15:02", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
+{"time": "2026-01-18 01:15:02", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
+{"time": "2026-01-18 01:19:10", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: :memory:"}
+{"time": "2026-01-18 01:19:10", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"time": "2026-01-18 01:19:10", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
+{"time": "2026-01-18 01:19:10", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
+{"time": "2026-01-18 01:19:10", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
+{"time": "2026-01-18 01:24:32", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
+{"time": "2026-01-18 01:24:44", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: sentinel_db"}
+{"time": "2026-01-18 01:24:44", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"time": "2026-01-18 01:24:44", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
+{"time": "2026-01-18 01:24:46", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
+{"time": "2026-01-18 01:24:46", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
+{"time": "2026-01-18 01:24:46", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:24:46", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
+{"time": "2026-01-18 01:24:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
+{"time": "2026-01-18 01:24:50", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
+{"time": "2026-01-18 01:24:50", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:24:50", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
+{"time": "2026-01-18 01:24:53", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
+{"time": "2026-01-18 01:24:53", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-17.csv"}
+{"time": "2026-01-18 01:24:54", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:24:54", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
+{"time": "2026-01-18 01:24:56", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-17.csv"}
+{"time": "2026-01-18 01:24:56", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
+{"time": "2026-01-18 01:24:56", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:24:56", "level": "INFO", "message": "[STORAGE] Inserting 2206 records."}
+{"time": "2026-01-18 01:24:59", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
+{"time": "2026-01-18 01:24:59", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
+{"time": "2026-01-18 01:25:00", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:25:00", "level": "INFO", "message": "[STORAGE] Inserting 2207 records."}
+{"time": "2026-01-18 01:25:03", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
+{"time": "2026-01-18 01:25:03", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-17.csv"}
+{"time": "2026-01-18 01:25:03", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:25:03", "level": "INFO", "message": "[STORAGE] Inserting 2208 records."}
+{"time": "2026-01-18 01:25:06", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-17.csv"}
+{"time": "2026-01-18 01:25:06", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
+{"time": "2026-01-18 01:25:06", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:25:06", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
+{"time": "2026-01-18 01:25:09", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
+{"time": "2026-01-18 01:25:09", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
+{"time": "2026-01-18 01:25:09", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:25:09", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
+{"time": "2026-01-18 01:25:12", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
+{"time": "2026-01-18 01:25:12", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-17.csv"}
+{"time": "2026-01-18 01:25:12", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-17_silver_2026-01-17.csv"}
+{"time": "2026-01-18 01:25:12", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
+{"time": "2026-01-18 01:25:15", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-17.csv"}
+{"time": "2026-01-18 01:25:15", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
+{"time": "2026-01-18 01:25:15", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
+{"time": "2026-01-18 01:25:15", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
