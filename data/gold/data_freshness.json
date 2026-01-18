@@ -1,17 +1,12 @@
 {
   "AAPL": {
-    "last_available_date": "2026-01-16",
-    "days_since_update": 2,
-    "is_stale": false
+    "last_available_date": "2026-01-10",
+    "days_since_update": 8,
+    "is_stale": true
   },
   "BTC-USD": {
-    "last_available_date": "2026-01-17",
-    "days_since_update": 1,
-    "is_stale": false
-  },
-  "SPY": {
-    "last_available_date": "2026-01-16",
-    "days_since_update": 2,
-    "is_stale": false
+    "last_available_date": "2026-01-10",
+    "days_since_update": 8,
+    "is_stale": true
   }
 }
