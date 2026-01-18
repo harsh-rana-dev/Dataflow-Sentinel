@@ -321,3 +321,16 @@
 {"time": "2026-01-18 01:25:15", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
 {"time": "2026-01-18 01:25:15", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
 {"time": "2026-01-18 01:25:15", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
+{"time": "2026-01-18 22:57:11", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"time": "2026-01-18 22:58:07", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
+{"time": "2026-01-18 22:58:23", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"time": "2026-01-18 22:58:27", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
+{"time": "2026-01-18 22:58:27", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-18.csv"}
+{"time": "2026-01-18 22:58:32", "level": "INFO", "message": "[PIPELINE] Successfully stored data from AAPL_2026-01-18.csv"}
+{"time": "2026-01-18 22:58:32", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-18.csv"}
+{"time": "2026-01-18 22:58:37", "level": "INFO", "message": "[PIPELINE] Successfully stored data from BTC-USD_2026-01-18.csv"}
+{"time": "2026-01-18 22:58:37", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-18.csv"}
+{"time": "2026-01-18 22:58:40", "level": "INFO", "message": "[PIPELINE] Successfully stored data from SPY_2026-01-18.csv"}
+{"time": "2026-01-18 22:58:40", "level": "INFO", "message": "[PIPELINE] Running Gold layer aggregates"}
+{"time": "2026-01-18 22:58:41", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
+{"time": "2026-01-18 22:58:41", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}

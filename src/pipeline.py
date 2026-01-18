@@ -1,24 +1,27 @@
+import os
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from ingestion import ingest_all_assets
-from validation import (
-    validate_bronze_csv,
-    save_silver_dataframe,
-)
-# Added init_db to the imports
-from storage import insert_silver_dataframe, init_db
-from gold import run_gold_layer
+# Fix: Ensure the project root is in the system path. 
+# This prevents "ModuleNotFoundError" when running in GitHub Actions.
+root = Path(__file__).parent.parent
+if str(root) not in sys.path:
+    sys.path.append(str(root))
 
-from logger import logger 
+from src.ingestion import ingest_all_assets
+from src.validation import validate_bronze_csv, save_silver_dataframe
+from src.storage import insert_silver_dataframe, init_db
+from src.gold import run_gold_layer
+from src.logger import logger 
 
 BRONZE_DIR = Path("data/bronze")
 
 def run_pipeline() -> None:
     logger.info("[PIPELINE] Starting pipeline")
-
+    
     # 0️⃣ Database Setup (FORCED INITIALIZATION)
-    # This ensures tables are created in Neon even if no new data is found.
+    # This ensures tables exist in Neon before we try to insert data.
     try:
         init_db()
     except Exception:
@@ -27,7 +30,7 @@ def run_pipeline() -> None:
 
     end_date = datetime.now(timezone.utc).date().isoformat()
 
-    # 1️⃣ Ingestion
+    # 1️⃣ Ingestion: Fetch data from the API
     try:
         ingest_all_assets(
             start_date="2020-01-01",
@@ -38,43 +41,36 @@ def run_pipeline() -> None:
         logger.error(f"[PIPELINE] Ingestion failed: {e}")
         return
 
-    # 2️⃣ Validation + Silver persistence
+    # 2️⃣ Validation + Silver persistence (Local CSV + Neon Upload)
     bronze_files = list(BRONZE_DIR.glob("*.csv"))
 
     if not bronze_files:
         logger.warning("[PIPELINE] No bronze files found in data/bronze. Check ingestion logs.")
-        # We don't return here so the Gold layer can still attempt to run if needed
     else:
         for bronze_file in bronze_files:
             logger.info(f"[PIPELINE] Processing {bronze_file.name}")
 
             try:
+                # Clean and validate the data
                 silver_df = validate_bronze_csv(bronze_file)
-            except Exception as e:
-                logger.error(f"[PIPELINE] Validation failed for {bronze_file.name}: {e}")
-                continue
+                
+                if silver_df.empty:
+                    logger.warning(f"[PIPELINE] No valid rows in {bronze_file.name}, skipping")
+                    continue
 
-            if silver_df.empty:
-                logger.warning(f"[PIPELINE] No valid rows in {bronze_file.name}, skipping")
-                continue
-
-            try:
-                silver_path = save_silver_dataframe(silver_df, bronze_file)
-                logger.info(f"[PIPELINE] Silver saved → {silver_path.name}")
-            except Exception as e:
-                logger.error(f"[PIPELINE] Failed to save silver for {bronze_file.name}: {e}")
-                continue
-
-            # 3️⃣ Store in Neon/Postgres
-            try:
+                # Save locally for backup (Silver Layer)
+                save_silver_dataframe(silver_df, bronze_file)
+                
+                # 3️⃣ Store in Neon (Postgres)
                 insert_silver_dataframe(silver_df)
-                logger.info(f"[PIPELINE] Data inserted into database for {bronze_file.name}")
+                logger.info(f"[PIPELINE] Successfully stored data from {bronze_file.name}")
+                
             except Exception as e:
-                logger.error(f"[PIPELINE] Database insert failed for {bronze_file.name}: {e}")
+                logger.error(f"[PIPELINE] Failed to process {bronze_file.name}: {e}")
 
-    # 4️⃣ Gold layer
+    # 4️⃣ Gold layer: Aggregate data for reporting
     try:
-        logger.info("[PIPELINE] Running Gold layer")
+        logger.info("[PIPELINE] Running Gold layer aggregates")
         run_gold_layer()
         logger.info("[PIPELINE] Gold layer finished successfully")
     except Exception as e:

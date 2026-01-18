@@ -3,7 +3,7 @@ name: Data Pipeline
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 13 * * *" # 7:00 PM In
+    - cron: "30 13 * * *" # 7:30 PM UTC
 
 jobs:
   run-pipeline:
@@ -34,5 +34,6 @@ jobs:
           DB_NAME: ${{ secrets.DB_NAME }}
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          ALPHAVANTAGE_API_KEY: ${{ secrets.ALPHAVANTAGE_API_KEY }}
         run: |
           python src/pipeline.py
