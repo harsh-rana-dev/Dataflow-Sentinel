@@ -41,4 +41,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pipeline-logs
-          path: log/pipeline_run.json
+          path: logs/pipeline_run.json
