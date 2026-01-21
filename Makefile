@@ -12,7 +12,7 @@ install: requirements.txt
 	pip install -r requirements.txt
 
 run:
-	python src/pipeline.py
+	python -m src.pipeline
 
 test:
 	python -m pytest tests/

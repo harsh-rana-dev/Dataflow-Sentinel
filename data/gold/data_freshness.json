@@ -1,12 +1,22 @@
 {
   "AAPL": {
-    "last_available_date": "2026-01-10",
-    "days_since_update": 8,
-    "is_stale": true
+    "last_available_date": "2026-01-20",
+    "days_since_update": 1,
+    "is_stale": false
   },
   "BTC-USD": {
-    "last_available_date": "2026-01-10",
-    "days_since_update": 8,
-    "is_stale": true
+    "last_available_date": "2026-01-20",
+    "days_since_update": 1,
+    "is_stale": false
+  },
+  "SPY": {
+    "last_available_date": "2026-01-20",
+    "days_since_update": 1,
+    "is_stale": false
+  },
+  "TSLA": {
+    "last_available_date": "2026-01-20",
+    "days_since_update": 1,
+    "is_stale": false
   }
 }

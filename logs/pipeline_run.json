@@ -1,351 +1,385 @@
-{"time": "2026-01-16 22:22:40", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
-{"time": "2026-01-16 22:22:44", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
-{"time": "2026-01-16 22:22:44", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-11.csv"}
-{"time": "2026-01-16 22:22:44", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-11_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:44", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-11.csv"}
-{"time": "2026-01-16 22:22:44", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-13.csv"}
-{"time": "2026-01-16 22:22:44", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-13_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:44", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-13.csv"}
-{"time": "2026-01-16 22:22:44", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
-{"time": "2026-01-16 22:22:44", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:45", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
-{"time": "2026-01-16 22:22:45", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:45", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:45", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:45", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-11.csv"}
-{"time": "2026-01-16 22:22:45", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-11_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:45", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-11.csv"}
-{"time": "2026-01-16 22:22:45", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-13.csv"}
-{"time": "2026-01-16 22:22:46", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-13_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:46", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-13.csv"}
-{"time": "2026-01-16 22:22:46", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-16 22:22:46", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:46", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-16 22:22:46", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:46", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:47", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:47", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-11.csv"}
-{"time": "2026-01-16 22:22:47", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-11_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:47", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-11.csv"}
-{"time": "2026-01-16 22:22:47", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-13.csv"}
-{"time": "2026-01-16 22:22:47", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-13_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:47", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-13.csv"}
-{"time": "2026-01-16 22:22:47", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
-{"time": "2026-01-16 22:22:47", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:48", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
-{"time": "2026-01-16 22:22:48", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:48", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:48", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
-{"time": "2026-01-16 22:22:48", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
-{"time": "2026-01-16 22:22:48", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
-{"time": "2026-01-16 22:22:48", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
-{"time": "2026-01-17 01:55:49", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
-{"time": "2026-01-17 01:55:49", "level": "INFO", "message": "[STORAGE] Database initialized. Host: localhost"}
-{"time": "2026-01-17 01:55:51", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
-{"time": "2026-01-17 01:55:51", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-11.csv"}
-{"time": "2026-01-17 01:55:51", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-11_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:52", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-11.csv"}
-{"time": "2026-01-17 01:55:52", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-13.csv"}
-{"time": "2026-01-17 01:55:52", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-13_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:52", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-13.csv"}
-{"time": "2026-01-17 01:55:52", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
-{"time": "2026-01-17 01:55:52", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:52", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
-{"time": "2026-01-17 01:55:52", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:52", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:53", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:53", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-11.csv"}
-{"time": "2026-01-17 01:55:53", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-11_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:53", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-11.csv"}
-{"time": "2026-01-17 01:55:53", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-13.csv"}
-{"time": "2026-01-17 01:55:53", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-13_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:54", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-13.csv"}
-{"time": "2026-01-17 01:55:54", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-17 01:55:54", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:54", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-17 01:55:54", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:54", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:55", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:55", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-11.csv"}
-{"time": "2026-01-17 01:55:55", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-11_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:55", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-11.csv"}
-{"time": "2026-01-17 01:55:55", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-13.csv"}
-{"time": "2026-01-17 01:55:55", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-13_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:55", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-13.csv"}
-{"time": "2026-01-17 01:55:55", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
-{"time": "2026-01-17 01:55:55", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:56", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
-{"time": "2026-01-17 01:55:56", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:56", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:56", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
-{"time": "2026-01-17 01:55:56", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
-{"time": "2026-01-17 01:55:56", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
-{"time": "2026-01-17 01:55:56", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
-{"time": "2026-01-17 19:02:31", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: :memory:"}
-{"time": "2026-01-17 19:02:31", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-17 19:02:31", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
-{"time": "2026-01-17 19:02:31", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
-{"time": "2026-01-17 19:02:31", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
-{"time": "2026-01-17 19:02:45", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
-{"time": "2026-01-17 19:02:45", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: dataflow_sentinel"}
-{"time": "2026-01-17 19:02:45", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-17 19:02:45", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
-{"time": "2026-01-17 19:02:47", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
-{"time": "2026-01-17 19:02:47", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
-{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
-{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
-{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
-{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
-{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
-{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:48", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
-{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[STORAGE] Inserting 2206 records."}
-{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:49", "level": "INFO", "message": "[STORAGE] Inserting 2207 records."}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[STORAGE] Inserting 2208 records."}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:50", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
-{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
-{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
-{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-17.csv"}
-{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
-{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
-{"time": "2026-01-17 19:02:51", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
-{"time": "2026-01-17 19:05:37", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: :memory:"}
-{"time": "2026-01-17 19:05:37", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-17 19:05:37", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
-{"time": "2026-01-17 19:05:37", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
-{"time": "2026-01-17 19:05:37", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
-{"time": "2026-01-18 00:45:41", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
-{"time": "2026-01-18 00:45:55", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: neondb"}
-{"time": "2026-01-18 00:45:55", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-18 00:45:55", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
-{"time": "2026-01-18 00:45:57", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
-{"time": "2026-01-18 00:45:57", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
-{"time": "2026-01-18 00:45:57", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:45:57", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
-{"time": "2026-01-18 00:46:01", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
-{"time": "2026-01-18 00:46:01", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
-{"time": "2026-01-18 00:46:01", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:01", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
-{"time": "2026-01-18 00:46:05", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
-{"time": "2026-01-18 00:46:05", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:05", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:05", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
-{"time": "2026-01-18 00:46:08", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:08", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-18 00:46:09", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:09", "level": "INFO", "message": "[STORAGE] Inserting 2206 records."}
-{"time": "2026-01-18 00:46:12", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-18 00:46:12", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-18 00:46:12", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:12", "level": "INFO", "message": "[STORAGE] Inserting 2207 records."}
-{"time": "2026-01-18 00:46:17", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-18 00:46:17", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:17", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:17", "level": "INFO", "message": "[STORAGE] Inserting 2208 records."}
-{"time": "2026-01-18 00:46:21", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:21", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
-{"time": "2026-01-18 00:46:21", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:21", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
-{"time": "2026-01-18 00:46:24", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
-{"time": "2026-01-18 00:46:24", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
-{"time": "2026-01-18 00:46:25", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:25", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
-{"time": "2026-01-18 00:46:28", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
-{"time": "2026-01-18 00:46:28", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:28", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:28", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
-{"time": "2026-01-18 00:46:31", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-17.csv"}
-{"time": "2026-01-18 00:46:31", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
-{"time": "2026-01-18 00:46:31", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
-{"time": "2026-01-18 00:46:31", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
-{"time": "2026-01-18 00:54:05", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: :memory:"}
-{"time": "2026-01-18 00:54:05", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-18 00:54:05", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
-{"time": "2026-01-18 00:54:05", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
-{"time": "2026-01-18 00:54:05", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
-{"time": "2026-01-18 00:54:09", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
-{"time": "2026-01-18 00:54:23", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: neondb"}
-{"time": "2026-01-18 00:54:23", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-18 00:54:23", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
-{"time": "2026-01-18 00:54:25", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
-{"time": "2026-01-18 00:54:25", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
-{"time": "2026-01-18 00:54:25", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:25", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
-{"time": "2026-01-18 00:54:29", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
-{"time": "2026-01-18 00:54:29", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
-{"time": "2026-01-18 00:54:29", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:29", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
-{"time": "2026-01-18 00:54:32", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
-{"time": "2026-01-18 00:54:32", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:32", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:32", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
-{"time": "2026-01-18 00:54:35", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:35", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-18 00:54:35", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:35", "level": "INFO", "message": "[STORAGE] Inserting 2206 records."}
-{"time": "2026-01-18 00:54:38", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-18 00:54:38", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-18 00:54:39", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:39", "level": "INFO", "message": "[STORAGE] Inserting 2207 records."}
-{"time": "2026-01-18 00:54:42", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-18 00:54:42", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:42", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:42", "level": "INFO", "message": "[STORAGE] Inserting 2208 records."}
-{"time": "2026-01-18 00:54:45", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:45", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
-{"time": "2026-01-18 00:54:45", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:45", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
-{"time": "2026-01-18 00:54:48", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
-{"time": "2026-01-18 00:54:48", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
-{"time": "2026-01-18 00:54:48", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:48", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
-{"time": "2026-01-18 00:54:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
-{"time": "2026-01-18 00:54:50", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:51", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:51", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
-{"time": "2026-01-18 00:54:53", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-17.csv"}
-{"time": "2026-01-18 00:54:53", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
-{"time": "2026-01-18 00:54:54", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
-{"time": "2026-01-18 00:54:54", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
-{"time": "2026-01-18 01:14:16", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
-{"time": "2026-01-18 01:14:29", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: sentinel_db"}
-{"time": "2026-01-18 01:14:29", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-18 01:14:29", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
-{"time": "2026-01-18 01:14:32", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
-{"time": "2026-01-18 01:14:32", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
-{"time": "2026-01-18 01:14:32", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:32", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
-{"time": "2026-01-18 01:14:36", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
-{"time": "2026-01-18 01:14:36", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
-{"time": "2026-01-18 01:14:36", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:36", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
-{"time": "2026-01-18 01:14:40", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
-{"time": "2026-01-18 01:14:40", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:40", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:40", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
-{"time": "2026-01-18 01:14:42", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:42", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-18 01:14:43", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:43", "level": "INFO", "message": "[STORAGE] Inserting 2206 records."}
-{"time": "2026-01-18 01:14:46", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-18 01:14:46", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-18 01:14:46", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:46", "level": "INFO", "message": "[STORAGE] Inserting 2207 records."}
-{"time": "2026-01-18 01:14:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-18 01:14:50", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:50", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:50", "level": "INFO", "message": "[STORAGE] Inserting 2208 records."}
-{"time": "2026-01-18 01:14:54", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:54", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
-{"time": "2026-01-18 01:14:54", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:54", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
-{"time": "2026-01-18 01:14:56", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
-{"time": "2026-01-18 01:14:56", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
-{"time": "2026-01-18 01:14:57", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:57", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
-{"time": "2026-01-18 01:14:59", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
-{"time": "2026-01-18 01:14:59", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:59", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:14:59", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
-{"time": "2026-01-18 01:15:02", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-17.csv"}
-{"time": "2026-01-18 01:15:02", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
-{"time": "2026-01-18 01:15:02", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
-{"time": "2026-01-18 01:15:02", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
-{"time": "2026-01-18 01:19:10", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: :memory:"}
-{"time": "2026-01-18 01:19:10", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-18 01:19:10", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
-{"time": "2026-01-18 01:19:10", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
-{"time": "2026-01-18 01:19:10", "level": "INFO", "message": "[STORAGE] Inserting 1 records."}
-{"time": "2026-01-18 01:24:32", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
-{"time": "2026-01-18 01:24:44", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Database Name: sentinel_db"}
-{"time": "2026-01-18 01:24:44", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-18 01:24:44", "level": "INFO", "message": "\ud83d\ude80 [STORAGE] Tables confirmed in Neon."}
-{"time": "2026-01-18 01:24:46", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
-{"time": "2026-01-18 01:24:46", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-15.csv"}
-{"time": "2026-01-18 01:24:46", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:24:46", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
-{"time": "2026-01-18 01:24:50", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-15.csv"}
-{"time": "2026-01-18 01:24:50", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-16.csv"}
-{"time": "2026-01-18 01:24:50", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:24:50", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
-{"time": "2026-01-18 01:24:53", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-16.csv"}
-{"time": "2026-01-18 01:24:53", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-17.csv"}
-{"time": "2026-01-18 01:24:54", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 AAPL_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:24:54", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
-{"time": "2026-01-18 01:24:56", "level": "INFO", "message": "[PIPELINE] Data inserted into database for AAPL_2026-01-17.csv"}
-{"time": "2026-01-18 01:24:56", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-18 01:24:56", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:24:56", "level": "INFO", "message": "[STORAGE] Inserting 2206 records."}
-{"time": "2026-01-18 01:24:59", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-15.csv"}
-{"time": "2026-01-18 01:24:59", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-18 01:25:00", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:25:00", "level": "INFO", "message": "[STORAGE] Inserting 2207 records."}
-{"time": "2026-01-18 01:25:03", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-16.csv"}
-{"time": "2026-01-18 01:25:03", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-17.csv"}
-{"time": "2026-01-18 01:25:03", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 BTC-USD_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:25:03", "level": "INFO", "message": "[STORAGE] Inserting 2208 records."}
-{"time": "2026-01-18 01:25:06", "level": "INFO", "message": "[PIPELINE] Data inserted into database for BTC-USD_2026-01-17.csv"}
-{"time": "2026-01-18 01:25:06", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-15.csv"}
-{"time": "2026-01-18 01:25:06", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-15_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:25:06", "level": "INFO", "message": "[STORAGE] Inserting 1517 records."}
-{"time": "2026-01-18 01:25:09", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-15.csv"}
-{"time": "2026-01-18 01:25:09", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-16.csv"}
-{"time": "2026-01-18 01:25:09", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-16_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:25:09", "level": "INFO", "message": "[STORAGE] Inserting 1518 records."}
-{"time": "2026-01-18 01:25:12", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-16.csv"}
-{"time": "2026-01-18 01:25:12", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-17.csv"}
-{"time": "2026-01-18 01:25:12", "level": "INFO", "message": "[PIPELINE] Silver saved \u2192 SPY_2026-01-17_silver_2026-01-17.csv"}
-{"time": "2026-01-18 01:25:12", "level": "INFO", "message": "[STORAGE] Inserting 1519 records."}
-{"time": "2026-01-18 01:25:15", "level": "INFO", "message": "[PIPELINE] Data inserted into database for SPY_2026-01-17.csv"}
-{"time": "2026-01-18 01:25:15", "level": "INFO", "message": "[PIPELINE] Running Gold layer"}
-{"time": "2026-01-18 01:25:15", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
-{"time": "2026-01-18 01:25:15", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
-{"time": "2026-01-18 22:57:11", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-18 22:58:07", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
-{"time": "2026-01-18 22:58:23", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-18 22:58:27", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
-{"time": "2026-01-18 22:58:27", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-18.csv"}
-{"time": "2026-01-18 22:58:32", "level": "INFO", "message": "[PIPELINE] Successfully stored data from AAPL_2026-01-18.csv"}
-{"time": "2026-01-18 22:58:32", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-18.csv"}
-{"time": "2026-01-18 22:58:37", "level": "INFO", "message": "[PIPELINE] Successfully stored data from BTC-USD_2026-01-18.csv"}
-{"time": "2026-01-18 22:58:37", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-18.csv"}
-{"time": "2026-01-18 22:58:40", "level": "INFO", "message": "[PIPELINE] Successfully stored data from SPY_2026-01-18.csv"}
-{"time": "2026-01-18 22:58:40", "level": "INFO", "message": "[PIPELINE] Running Gold layer aggregates"}
-{"time": "2026-01-18 22:58:41", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
-{"time": "2026-01-18 22:58:41", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
-{"time": "2026-01-18 23:42:07", "level": "INFO", "message": "[PIPELINE] Starting pipeline"}
-{"time": "2026-01-18 23:42:21", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
-{"time": "2026-01-18 23:42:26", "level": "INFO", "message": "[PIPELINE] Ingestion complete"}
-{"time": "2026-01-18 23:42:26", "level": "INFO", "message": "[PIPELINE] Processing AAPL_2026-01-18.csv"}
-{"time": "2026-01-18 23:42:30", "level": "INFO", "message": "[PIPELINE] Successfully stored data from AAPL_2026-01-18.csv"}
-{"time": "2026-01-18 23:42:30", "level": "INFO", "message": "[PIPELINE] Processing BTC-USD_2026-01-18.csv"}
-{"time": "2026-01-18 23:42:35", "level": "INFO", "message": "[PIPELINE] Successfully stored data from BTC-USD_2026-01-18.csv"}
-{"time": "2026-01-18 23:42:35", "level": "INFO", "message": "[PIPELINE] Processing SPY_2026-01-18.csv"}
-{"time": "2026-01-18 23:42:39", "level": "INFO", "message": "[PIPELINE] Successfully stored data from SPY_2026-01-18.csv"}
-{"time": "2026-01-18 23:42:39", "level": "INFO", "message": "[PIPELINE] Processing TSLA_2026-01-18.csv"}
-{"time": "2026-01-18 23:42:42", "level": "INFO", "message": "[PIPELINE] Successfully stored data from TSLA_2026-01-18.csv"}
-{"time": "2026-01-18 23:42:42", "level": "INFO", "message": "[PIPELINE] Running Gold layer aggregates"}
-{"time": "2026-01-18 23:42:42", "level": "INFO", "message": "[PIPELINE] Gold layer finished successfully"}
-{"time": "2026-01-18 23:42:42", "level": "INFO", "message": "[PIPELINE] Pipeline finished successfully"}
-{"time": "2026-01-18 23:45:37", "level": "INFO", "message": "\ud83d\udd0d [DB CHECK] Tables found: ['market_data']"}
+{"timestamp": "2026-01-21 17:16:13", "level": "INFO", "logger": "pipeline", "message": "Pipeline started"}
+{"timestamp": "2026-01-21 17:16:13", "level": "INFO", "logger": "ingestion", "message": "Loaded 4 assets from config"}
+{"timestamp": "2026-01-21 17:16:13", "level": "INFO", "logger": "ingestion", "message": "Starting ingestion for 4 assets"}
+{"timestamp": "2026-01-21 17:16:13", "level": "INFO", "logger": "ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 17:16:15", "level": "INFO", "logger": "ingestion", "message": "Bronze data written: data/bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:15", "level": "INFO", "logger": "ingestion", "message": "Fetching data for asset: BTC-USD"}
+{"timestamp": "2026-01-21 17:16:16", "level": "INFO", "logger": "ingestion", "message": "Bronze data written: data/bronze/BTC-USD_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:16", "level": "INFO", "logger": "ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 17:16:16", "level": "INFO", "logger": "ingestion", "message": "Bronze data written: data/bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:16", "level": "INFO", "logger": "ingestion", "message": "Fetching data for asset: TSLA"}
+{"timestamp": "2026-01-21 17:16:17", "level": "INFO", "logger": "ingestion", "message": "Bronze data written: data/bronze/TSLA_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:17", "level": "INFO", "logger": "ingestion", "message": "Ingestion completed. 4 files written"}
+{"timestamp": "2026-01-21 17:16:17", "level": "INFO", "logger": "pipeline", "message": "Ingestion step completed"}
+{"timestamp": "2026-01-21 17:16:17", "level": "INFO", "logger": "pipeline", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 17:16:17", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:17", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1520 rejected_rows=0"}
+{"timestamp": "2026-01-21 17:16:17", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/AAPL_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:17", "level": "INFO", "logger": "storage", "message": "Creating PostgreSQL engine"}
+{"timestamp": "2026-01-21 17:16:24", "level": "INFO", "logger": "storage", "message": "Database tables ensured"}
+{"timestamp": "2026-01-21 17:16:24", "level": "INFO", "logger": "storage", "message": "Inserting 1520 records into market_data"}
+{"timestamp": "2026-01-21 17:16:29", "level": "INFO", "logger": "storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 17:16:29", "level": "INFO", "logger": "pipeline", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 17:16:29", "level": "INFO", "logger": "pipeline", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 17:16:29", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: BTC-USD_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:29", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=2212 rejected_rows=0"}
+{"timestamp": "2026-01-21 17:16:29", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/BTC-USD_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:29", "level": "INFO", "logger": "storage", "message": "Inserting 2212 records into market_data"}
+{"timestamp": "2026-01-21 17:16:34", "level": "INFO", "logger": "storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 17:16:34", "level": "INFO", "logger": "pipeline", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 17:16:34", "level": "INFO", "logger": "pipeline", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 17:16:34", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:34", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1520 rejected_rows=0"}
+{"timestamp": "2026-01-21 17:16:34", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/SPY_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:34", "level": "INFO", "logger": "storage", "message": "Inserting 1520 records into market_data"}
+{"timestamp": "2026-01-21 17:16:39", "level": "INFO", "logger": "storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 17:16:39", "level": "INFO", "logger": "pipeline", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 17:16:39", "level": "INFO", "logger": "pipeline", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 17:16:39", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: TSLA_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:39", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1520 rejected_rows=0"}
+{"timestamp": "2026-01-21 17:16:39", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/TSLA_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:16:39", "level": "INFO", "logger": "storage", "message": "Inserting 1520 records into market_data"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "pipeline", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "pipeline", "message": "Running gold layer"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "gold_metrics", "message": "Loading 4 silver files"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "gold_metrics", "message": "Computed aggregates for 4 symbols"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "gold_metrics", "message": "Aggregates written to data\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "gold_metrics", "message": "Computed freshness for 4 symbols"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "gold_metrics", "message": "Freshness data written to data\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "pipeline", "message": "Gold layer completed"}
+{"timestamp": "2026-01-21 17:16:43", "level": "INFO", "logger": "pipeline", "message": "Pipeline finished"}
+{"timestamp": "2026-01-21 17:22:37", "level": "INFO", "logger": "pipeline", "message": "Pipeline started"}
+{"timestamp": "2026-01-21 17:22:37", "level": "INFO", "logger": "ingestion", "message": "Loaded 4 assets from config"}
+{"timestamp": "2026-01-21 17:22:37", "level": "INFO", "logger": "ingestion", "message": "Starting ingestion for 4 assets"}
+{"timestamp": "2026-01-21 17:22:37", "level": "INFO", "logger": "ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 17:22:40", "level": "INFO", "logger": "ingestion", "message": "Bronze data written: data/bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:22:40", "level": "INFO", "logger": "ingestion", "message": "Fetching data for asset: BTC-USD"}
+{"timestamp": "2026-01-21 17:22:42", "level": "INFO", "logger": "ingestion", "message": "Bronze data written: data/bronze/BTC-USD_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:22:42", "level": "INFO", "logger": "ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 17:22:44", "level": "INFO", "logger": "ingestion", "message": "Bronze data written: data/bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:22:44", "level": "INFO", "logger": "ingestion", "message": "Fetching data for asset: TSLA"}
+{"timestamp": "2026-01-21 17:22:45", "level": "INFO", "logger": "ingestion", "message": "Bronze data written: data/bronze/TSLA_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:22:45", "level": "INFO", "logger": "ingestion", "message": "Ingestion completed. 4 files written"}
+{"timestamp": "2026-01-21 17:22:45", "level": "INFO", "logger": "pipeline", "message": "Ingestion step completed"}
+{"timestamp": "2026-01-21 17:22:45", "level": "INFO", "logger": "pipeline", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 17:22:45", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:22:46", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1520 rejected_rows=0"}
+{"timestamp": "2026-01-21 17:22:46", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/AAPL_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:22:46", "level": "INFO", "logger": "storage", "message": "Creating PostgreSQL engine"}
+{"timestamp": "2026-01-21 17:22:57", "level": "INFO", "logger": "storage", "message": "Database tables ensured"}
+{"timestamp": "2026-01-21 17:22:57", "level": "INFO", "logger": "storage", "message": "Inserting 1520 records into market_data"}
+{"timestamp": "2026-01-21 17:23:04", "level": "INFO", "logger": "storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 17:23:04", "level": "INFO", "logger": "pipeline", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 17:23:04", "level": "INFO", "logger": "pipeline", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 17:23:04", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: BTC-USD_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:23:04", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=2212 rejected_rows=0"}
+{"timestamp": "2026-01-21 17:23:04", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/BTC-USD_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:23:04", "level": "INFO", "logger": "storage", "message": "Inserting 2212 records into market_data"}
+{"timestamp": "2026-01-21 17:23:11", "level": "INFO", "logger": "storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 17:23:11", "level": "INFO", "logger": "pipeline", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 17:23:11", "level": "INFO", "logger": "pipeline", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 17:23:11", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:23:11", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1520 rejected_rows=0"}
+{"timestamp": "2026-01-21 17:23:11", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/SPY_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:23:11", "level": "INFO", "logger": "storage", "message": "Inserting 1520 records into market_data"}
+{"timestamp": "2026-01-21 17:23:16", "level": "INFO", "logger": "storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 17:23:16", "level": "INFO", "logger": "pipeline", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 17:23:16", "level": "INFO", "logger": "pipeline", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 17:23:16", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: TSLA_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:23:16", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1520 rejected_rows=0"}
+{"timestamp": "2026-01-21 17:23:16", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/TSLA_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 17:23:16", "level": "INFO", "logger": "storage", "message": "Inserting 1520 records into market_data"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "pipeline", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "pipeline", "message": "Running gold layer"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "gold_metrics", "message": "Loading 4 silver files"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "gold_metrics", "message": "Computed aggregates for 4 symbols"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "gold_metrics", "message": "Aggregates written to data\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "gold_metrics", "message": "Computed freshness for 4 symbols"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "gold_metrics", "message": "Freshness data written to data\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "pipeline", "message": "Gold layer completed"}
+{"timestamp": "2026-01-21 17:23:21", "level": "INFO", "logger": "pipeline", "message": "Pipeline finished"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_gold_creates_output_files0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_gold_creates_output_files0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_gold_aggregates_schema_an0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_gold_aggregates_schema_an0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_gold_freshness_contract0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_gold_freshness_contract0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_ingestion_creates_files0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_ingestion_creates_files0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_ingestion_csv_schema0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_ingestion_csv_schema0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:31:34", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_ingestion_symbol_column0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-23\\test_ingestion_symbol_column0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.storage", "message": "Using in-memory SQLite database for testing"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.storage", "message": "Database tables ensured"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:31:35", "level": "WARNING", "logger": "src.storage", "message": "No data provided to insert into silver layer"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=0"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=0 rejected_rows=1"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=1"}
+{"timestamp": "2026-01-21 23:31:35", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=0"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_gold_creates_output_files0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_gold_creates_output_files0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_gold_aggregates_schema_an0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_gold_aggregates_schema_an0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_gold_freshness_contract0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_gold_freshness_contract0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_ingestion_creates_files0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_ingestion_creates_files0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_ingestion_csv_schema0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_ingestion_csv_schema0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_ingestion_symbol_column0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-24\\test_ingestion_symbol_column0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.storage", "message": "Using in-memory SQLite database for testing"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.storage", "message": "Database tables ensured"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:40:36", "level": "WARNING", "logger": "src.storage", "message": "No data provided to insert into silver layer"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=0"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=0 rejected_rows=1"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=1"}
+{"timestamp": "2026-01-21 23:40:36", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=0"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_gold_creates_output_files0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_gold_creates_output_files0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_gold_aggregates_schema_an0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_gold_aggregates_schema_an0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_gold_freshness_contract0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_gold_freshness_contract0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_ingestion_creates_files0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_ingestion_creates_files0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_ingestion_csv_schema0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_ingestion_csv_schema0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_ingestion_symbol_column0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-25\\test_ingestion_symbol_column0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.storage", "message": "Using in-memory SQLite database for testing"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.storage", "message": "Database tables ensured"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:44:29", "level": "WARNING", "logger": "src.storage", "message": "No data provided to insert into silver layer"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=0"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=0 rejected_rows=1"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=1"}
+{"timestamp": "2026-01-21 23:44:29", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=0"}
+{"timestamp": "2026-01-21 23:49:58", "level": "INFO", "logger": "__main__", "message": "Pipeline started"}
+{"timestamp": "2026-01-21 23:49:58", "level": "INFO", "logger": "src.ingestion", "message": "Loaded 4 assets from config"}
+{"timestamp": "2026-01-21 23:49:58", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 4 assets"}
+{"timestamp": "2026-01-21 23:49:58", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:50:00", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:00", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: BTC-USD"}
+{"timestamp": "2026-01-21 23:50:00", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/BTC-USD_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:00", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:50:01", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:01", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: TSLA"}
+{"timestamp": "2026-01-21 23:50:02", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/TSLA_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:02", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 4 files written"}
+{"timestamp": "2026-01-21 23:50:02", "level": "INFO", "logger": "__main__", "message": "Ingestion step completed"}
+{"timestamp": "2026-01-21 23:50:02", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 23:50:02", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:02", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1520 rejected_rows=0"}
+{"timestamp": "2026-01-21 23:50:02", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/AAPL_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:02", "level": "INFO", "logger": "src.storage", "message": "Creating PostgreSQL engine"}
+{"timestamp": "2026-01-21 23:50:11", "level": "INFO", "logger": "src.storage", "message": "Database tables ensured"}
+{"timestamp": "2026-01-21 23:50:11", "level": "INFO", "logger": "src.storage", "message": "Inserting 1520 records into market_data"}
+{"timestamp": "2026-01-21 23:50:17", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:50:17", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 23:50:17", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 23:50:17", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: BTC-USD_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:17", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=2212 rejected_rows=0"}
+{"timestamp": "2026-01-21 23:50:17", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/BTC-USD_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:17", "level": "INFO", "logger": "src.storage", "message": "Inserting 2212 records into market_data"}
+{"timestamp": "2026-01-21 23:50:23", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:50:23", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 23:50:23", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 23:50:23", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:23", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1520 rejected_rows=0"}
+{"timestamp": "2026-01-21 23:50:23", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/SPY_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:24", "level": "INFO", "logger": "src.storage", "message": "Inserting 1520 records into market_data"}
+{"timestamp": "2026-01-21 23:50:29", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:50:29", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 23:50:29", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-21 23:50:29", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: TSLA_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:29", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1520 rejected_rows=0"}
+{"timestamp": "2026-01-21 23:50:29", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/TSLA_2026-01-21_silver_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:29", "level": "INFO", "logger": "src.storage", "message": "Inserting 1520 records into market_data"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "__main__", "message": "Running gold layer"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Loading 4 silver files"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 4 symbols"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to data\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 4 symbols"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to data\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "__main__", "message": "Gold layer completed"}
+{"timestamp": "2026-01-21 23:50:34", "level": "INFO", "logger": "__main__", "message": "Pipeline finished"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_gold_creates_output_files0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_gold_creates_output_files0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_gold_aggregates_schema_an0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_gold_aggregates_schema_an0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_gold_freshness_contract0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_gold_freshness_contract0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_ingestion_creates_files0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_ingestion_creates_files0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_ingestion_csv_schema0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_ingestion_csv_schema0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_ingestion_symbol_column0\\bronze/AAPL_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-26\\test_ingestion_symbol_column0\\bronze/SPY_2026-01-21.csv"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.storage", "message": "Using in-memory SQLite database for testing"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.storage", "message": "Database tables ensured"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-21 23:50:43", "level": "WARNING", "logger": "src.storage", "message": "No data provided to insert into silver layer"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=0"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=0 rejected_rows=1"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=1"}
+{"timestamp": "2026-01-21 23:50:43", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=0"}

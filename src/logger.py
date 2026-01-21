@@ -1,50 +1,77 @@
-# logger.py
+# src/logger.py
 import logging
-from pathlib import Path
+import os
 import json
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables (safe in CI too)
+load_dotenv()
 
 # ----------------------------
-# 1️⃣ Create logs folder
+# Configuration
 # ----------------------------
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
 LOG_DIR = Path("logs")
+LOG_FILE = LOG_DIR / "pipeline_run.json"
+
 LOG_DIR.mkdir(exist_ok=True)
 
 # ----------------------------
-# 2️⃣ Custom JSON Formatter for file logs
+# JSON Formatter (file logs)
 # ----------------------------
 class JsonFormatter(logging.Formatter):
-    def format(self, record):
+    def format(self, record: logging.LogRecord) -> str:
         log_record = {
-            "time": self.formatTime(record, "%Y-%m-%d %H:%M:%S"),
+            "timestamp": self.formatTime(record, "%Y-%m-%d %H:%M:%S"),
             "level": record.levelname,
-            "message": record.getMessage()
+            "logger": record.name,
+            "message": record.getMessage(),
         }
+
+        if record.exc_info:
+            log_record["exception"] = self.formatException(record.exc_info)
+
+        if hasattr(record, "extra"):
+            log_record.update(record.extra)
+
         return json.dumps(log_record)
 
-# ----------------------------
-# 3️⃣ Create logger
-# ----------------------------
-logger = logging.getLogger("pipeline")
-logger.setLevel(logging.INFO)  # Minimum level to capture
 
 # ----------------------------
-# 4️⃣ Console handler
+# Logger factory
 # ----------------------------
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.INFO)
-console_formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s",
-                                      datefmt="%Y-%m-%d %H:%M:%S")
-console_handler.setFormatter(console_formatter)
+def get_logger(name: str = "pipeline") -> logging.Logger:
+    logger = logging.getLogger(name)
+
+    # Prevent duplicate handlers
+    if logger.handlers:
+        return logger
+
+    logger.setLevel(LOG_LEVEL)
+
+    # Console handler (human-readable)
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(LOG_LEVEL)
+    console_formatter = logging.Formatter(
+        "%(asctime)s | %(levelname)s | %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+    console_handler.setFormatter(console_formatter)
+
+    # File handler (JSON)
+    file_handler = logging.FileHandler(LOG_FILE)
+    file_handler.setLevel(LOG_LEVEL)
+    file_handler.setFormatter(JsonFormatter())
+
+    logger.addHandler(console_handler)
+    logger.addHandler(file_handler)
+
+    logger.propagate = False
+    return logger
+
 
 # ----------------------------
-# 5️⃣ File handler
+# Default logger
 # ----------------------------
-file_handler = logging.FileHandler(LOG_DIR / "pipeline_run.json")
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(JsonFormatter())
-
-# ----------------------------
-# 6️⃣ Add handlers to logger
-# ----------------------------
-logger.addHandler(console_handler)
-logger.addHandler(file_handler)
+logger = get_logger()

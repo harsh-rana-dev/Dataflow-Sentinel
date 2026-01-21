@@ -1,12 +1,11 @@
-import pandas as pd
 from datetime import date
+import pandas as pd
 
 from src.validation import validate_bronze_dataframe
 
 
-def test_valid_rows_pass_validation():
-    """Valid rows should pass and appear in silver output."""
-
+def test_valid_row_passes_validation():
+    """A fully valid row should appear in the silver dataframe."""
     df = pd.DataFrame(
         [
             {
@@ -27,13 +26,12 @@ def test_valid_rows_pass_validation():
     assert silver_df.iloc[0]["symbol"] == "AAPL"
 
 
-def test_invalid_row_is_rejected():
-    """Row with missing required fields should be rejected."""
-
+def test_invalid_symbol_is_rejected():
+    """Empty symbol should cause row rejection."""
     df = pd.DataFrame(
         [
             {
-                "symbol": "",  # invalid (empty)
+                "symbol": "",
                 "Date": date(2024, 1, 1),
                 "Open": 100.0,
                 "High": 110.0,
@@ -50,8 +48,7 @@ def test_invalid_row_is_rejected():
 
 
 def test_mixed_valid_and_invalid_rows():
-    """Valid rows should survive even if some rows are invalid."""
-
+    """Valid rows must survive even if others are invalid."""
     df = pd.DataFrame(
         [
             {
@@ -78,11 +75,11 @@ def test_mixed_valid_and_invalid_rows():
     silver_df = validate_bronze_dataframe(df)
 
     assert len(silver_df) == 1
+    assert silver_df.iloc[0]["date"] == date(2024, 1, 1)
 
 
-def test_output_schema_is_exact():
-    """Silver dataframe must have the expected columns."""
-
+def test_silver_output_schema():
+    """Silver dataframe must have the exact expected schema."""
     df = pd.DataFrame(
         [
             {

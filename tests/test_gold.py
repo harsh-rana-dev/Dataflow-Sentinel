@@ -1,52 +1,56 @@
 from pathlib import Path
 import json
 import pandas as pd
-
 import pytest
 
-from src.gold import run_gold_layer
-
-
-GOLD_DIR = Path("data/gold")
-AGG_FILE = GOLD_DIR / "aggregates.csv"
-FRESH_FILE = GOLD_DIR / "data_freshness.json"
+import src.gold_metrics as gold
 
 
 @pytest.fixture
-def mock_silver_data(monkeypatch):
-
-    fake_df = pd.DataFrame(
+def fake_silver_df():
+    return pd.DataFrame(
         {
-            "symbol": ["AAPL", "BTC-USD"],
-            "date": pd.to_datetime(["2026-01-10", "2026-01-10"]),
-            "close": [150.0, 42000.0],
-            "volume": [1000000, 500000],
+            "symbol": ["AAPL", "AAPL", "BTC-USD"],
+            "date": pd.to_datetime(
+                ["2026-01-08", "2026-01-10", "2026-01-10"]
+            ),
+            "close": [145.0, 150.0, 42000.0],
+            "volume": [900000, 1000000, 500000],
         }
     )
 
-    monkeypatch.setattr(
-        "src.gold.load_all_silver_data",
-        lambda: fake_df,
-    )
 
-
-def test_gold_outputs_created(mock_silver_data):
+@pytest.fixture
+def isolated_gold_env(tmp_path, monkeypatch, fake_silver_df):
     """
-    Gold layer should create its output artifacts.
+    Fully isolate gold layer from real filesystem and IO.
     """
-    run_gold_layer()
+    silver_dir = tmp_path / "silver"
+    gold_dir = tmp_path / "gold"
+    silver_dir.mkdir()
+    gold_dir.mkdir()
 
-    assert AGG_FILE.exists(), "aggregates.csv was not created"
-    assert FRESH_FILE.exists(), "data_freshness.json was not created"
+    monkeypatch.setattr(gold, "SILVER_DIR", silver_dir)
+    monkeypatch.setattr(gold, "GOLD_DIR", gold_dir)
+    monkeypatch.setattr(gold, "AGGREGATES_FILE", gold_dir / "aggregates.csv")
+    monkeypatch.setattr(gold, "FRESHNESS_FILE", gold_dir / "data_freshness.json")
+
+    monkeypatch.setattr(gold, "load_all_silver_data", lambda: fake_silver_df)
+
+    return gold_dir
 
 
-def test_gold_aggregate_content(mock_silver_data):
-    """
-    Gold aggregates should contain expected columns and valid data.
-    """
-    run_gold_layer()
+def test_gold_creates_output_files(isolated_gold_env):
+    gold.run_gold_layer()
 
-    df = pd.read_csv(AGG_FILE)
+    assert (isolated_gold_env / "aggregates.csv").exists()
+    assert (isolated_gold_env / "data_freshness.json").exists()
+
+
+def test_gold_aggregates_schema_and_values(isolated_gold_env):
+    gold.run_gold_layer()
+
+    df = pd.read_csv(isolated_gold_env / "aggregates.csv")
 
     expected_columns = {
         "symbol",
@@ -58,26 +62,22 @@ def test_gold_aggregate_content(mock_silver_data):
     }
 
     assert expected_columns.issubset(df.columns)
+    assert df["symbol"].nunique() == 2
+    assert (df["latest_close"] > 0).all()
+    assert (df["latest_volume"] > 0).all()
 
-    assert df["symbol"].isnull().sum() == 0
-    assert (df["avg_7d_close"] > 0).all()
-    assert (df["avg_30d_close"] > 0).all()
 
+def test_gold_freshness_contract(isolated_gold_env):
+    gold.run_gold_layer()
 
-def test_gold_freshness_logic(mock_silver_data):
-    """
-    Freshness JSON should contain sane values.
-    """
-    run_gold_layer()
-
-    with open(FRESH_FILE) as f:
+    with open(isolated_gold_env / "data_freshness.json") as f:
         data = json.load(f)
 
     assert isinstance(data, dict)
-    assert len(data) > 0
+    assert set(data.keys()) == {"AAPL", "BTC-USD"}
 
-    for symbol, info in data.items():
-        assert "last_available_date" in info
-        assert "days_since_update" in info
-        assert "is_stale" in info
-        assert info["days_since_update"] >= 0
+    for payload in data.values():
+        assert "last_available_date" in payload
+        assert "days_since_update" in payload
+        assert "is_stale" in payload
+        assert payload["days_since_update"] >= 0

@@ -1,52 +1,87 @@
-import os
-import sys
 from pathlib import Path
-
-# Setup paths
-root = Path(__file__).parent.parent
-if str(root) not in sys.path:
-    sys.path.insert(0, str(root))
-
 import pandas as pd
 import pytest
-from src.ingestion import ingest_all_assets
 
-TEST_ASSETS = ["AAPL", "SPY"]
+import src.ingestion as ingestion
+
 
 @pytest.fixture
-def patched_ingestion(tmp_path, monkeypatch):
-    """Patch BRONZE_DIR and load_assets to use test assets and temporary folder."""
-    test_dir = tmp_path / "bronze_test"
-    test_dir.mkdir()
-    
-    # Force the code to use the temp directory for output
-    monkeypatch.setattr("src.ingestion.BRONZE_DIR", str(test_dir))
-    # Mock load_assets so we only test 2 assets instead of your full list
-    monkeypatch.setattr("src.ingestion.load_assets", lambda: TEST_ASSETS)
-    return test_dir
+def fake_yfinance_df():
+    return pd.DataFrame(
+        {
+            "Date": pd.to_datetime(
+                ["2024-01-02", "2024-01-03", "2024-01-04"]
+            ),
+            "Open": [100.0, 101.0, 102.0],
+            "High": [105.0, 106.0, 107.0],
+            "Low": [99.0, 100.0, 101.0],
+            "Close": [104.0, 105.0, 106.0],
+            "Volume": [1000, 1100, 1200],
+        }
+    )
 
-def test_bronze_files_created(patched_ingestion):
-    # Use a specific date range to ensure API response is consistent
-    files = ingest_all_assets(start_date="2024-01-01", end_date="2024-01-05")
-    assert len(files) == len(TEST_ASSETS)
-    for f in files:
-        f_path = Path(f)
-        assert f_path.exists()
-        assert f_path.stat().st_size > 0
 
-def test_csv_columns(patched_ingestion):
-    files = ingest_all_assets(start_date="2024-01-01", end_date="2024-01-05")
-    # Note: column names from yfinance are often capitalized
-    expected_columns = {"Date", "Open", "High", "Low", "Close", "Volume", "symbol"}
-    for f in files:
-        df = pd.read_csv(f)
-        assert expected_columns.issubset(set(df.columns))
+@pytest.fixture
+def isolated_ingestion_env(tmp_path, monkeypatch, fake_yfinance_df):
+    """
+    Fully isolate ingestion from filesystem and external APIs.
+    """
+    bronze_dir = tmp_path / "bronze"
+    bronze_dir.mkdir()
 
-def test_date_range(patched_ingestion):
-    files = ingest_all_assets(start_date="2024-01-01", end_date="2024-01-05")
-    for f in files:
-        df = pd.read_csv(f)
-        df['Date'] = pd.to_datetime(df['Date'])
-        min_date, max_date = df['Date'].min(), df['Date'].max()
-        assert min_date >= pd.Timestamp("2024-01-01")
-        assert max_date <= pd.Timestamp("2024-01-05")
+    monkeypatch.setattr(ingestion, "BRONZE_DIR", str(bronze_dir))
+    monkeypatch.setattr(ingestion, "load_assets", lambda: ["AAPL", "SPY"])
+
+    def fake_download(symbol, start, end, progress):
+        df = fake_yfinance_df.copy()
+        return df
+
+    monkeypatch.setattr(ingestion.yf, "download", fake_download)
+
+    return bronze_dir
+
+
+def test_ingestion_creates_files(isolated_ingestion_env):
+    files = ingestion.ingest_all_assets(
+        start_date="2024-01-01",
+        end_date="2024-01-05",
+    )
+
+    assert len(files) == 2
+
+    for file in files:
+        path = Path(file)
+        assert path.exists()
+        assert path.stat().st_size > 0
+
+
+def test_ingestion_csv_schema(isolated_ingestion_env):
+    files = ingestion.ingest_all_assets(
+        start_date="2024-01-01",
+        end_date="2024-01-05",
+    )
+
+    expected_columns = {
+        "Date",
+        "Open",
+        "High",
+        "Low",
+        "Close",
+        "Volume",
+        "symbol",
+    }
+
+    for file in files:
+        df = pd.read_csv(file)
+        assert expected_columns.issubset(df.columns)
+
+
+def test_ingestion_symbol_column(isolated_ingestion_env):
+    files = ingestion.ingest_all_assets(
+        start_date="2024-01-01",
+        end_date="2024-01-05",
+    )
+
+    for file in files:
+        df = pd.read_csv(file)
+        assert df["symbol"].nunique() == 1
