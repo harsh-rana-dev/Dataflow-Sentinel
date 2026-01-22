@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:16
-    container_name: dataflow_sentinel_postgres
+    container_name: sentinel_postgres
     restart: always
     environment:
       POSTGRES_USER: ${DB_USER}

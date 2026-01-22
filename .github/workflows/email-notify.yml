@@ -19,13 +19,11 @@ jobs:
           server_port: 587
           username: ${{ secrets.EMAIL_USER }}
           password: ${{ secrets.EMAIL_PASS }}
-          subject: ${{ github.event.workflow_run.conclusion == 'success' && '✅ SUCCESS' || '❌ FAILURE' }} – Sentinel Pipeline
+          subject: ${{ github.event.workflow_run.conclusion == 'success' && '✅ Pipeline executed successfully' || '❌ Pipeline run failed' }} - Sentinel Pipeline
           body: |
-            Workflow completed.
+            The Sentinel Pipeline workflow has completed.
 
             Status: ${{ github.event.workflow_run.conclusion }}
 
-            Artifacts:
-            ${{ github.event.workflow_run.html_url }}/artifacts
           to: ${{ secrets.EMAIL_TO }}
           from: GitHub Actions <${{ secrets.EMAIL_USER }}>

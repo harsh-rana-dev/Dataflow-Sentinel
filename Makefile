@@ -1,24 +1,24 @@
-.PHONY: help install run test docker_up docker_down
+.PHONY: help install run test docker-all
 
 help:
 	@echo "Available commands:"
-	@echo "  make install      Install Python dependencies"
-	@echo "  make run          Run the data pipeline"
-	@echo "  make test         Run all tests"
-	@echo "  make docker_up    Start Docker services"
-	@echo "  make docker_down  Stop Docker services"
+	@echo "  make install       Install Python dependencies"
+	@echo "  make run           Run the Sentinel Pipeline"
+	@echo "  make test          Run all tests"
+	@echo "  make docker-all    Run the Sentinel Pipeline inside Docker (full execution)"
 
 install: requirements.txt
+	python -m pip install --upgrade pip
 	pip install -r requirements.txt
 
 run:
 	python -m src.pipeline
 
 test:
-	python -m pytest tests/
+	python -m pytest -v tests/
 
-docker_up:
-	docker compose up -d
-
-docker_down:
+docker-all:
+	docker compose up -d --build
+	- docker compose exec app make run
+	- docker compose exec app make test
 	docker compose down
