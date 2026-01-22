@@ -19,7 +19,7 @@ jobs:
           server_port: 587
           username: ${{ secrets.EMAIL_USER }}
           password: ${{ secrets.EMAIL_PASS }}
-          subject: ${{ github.event.workflow_run.conclusion == 'success' && '✅ Pipeline executed successfully' || '❌ Pipeline run failed' }} - Sentinel Pipeline
+          subject: ${{ github.event.workflow_run.conclusion == 'success' && '✅ Pipeline run successful' || '❌ Pipeline run failed' }} - Sentinel Pipeline
           body: |
             The Sentinel Pipeline workflow has completed.
 
