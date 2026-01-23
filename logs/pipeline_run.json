@@ -576,3 +576,113 @@
 {"timestamp": "2026-01-23 01:19:32", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
 {"timestamp": "2026-01-23 01:19:32", "level": "INFO", "logger": "__main__", "message": "Gold layer completed"}
 {"timestamp": "2026-01-23 01:19:32", "level": "INFO", "logger": "__main__", "message": "Pipeline finished"}
+{"timestamp": "2026-01-23 22:53:56", "level": "INFO", "logger": "__main__", "message": "Pipeline started"}
+{"timestamp": "2026-01-23 22:53:56", "level": "INFO", "logger": "src.ingestion", "message": "Loaded 4 assets from config"}
+{"timestamp": "2026-01-23 22:53:56", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 4 assets"}
+{"timestamp": "2026-01-23 22:53:56", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-23 22:54:02", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/AAPL_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:02", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: BTC-USD"}
+{"timestamp": "2026-01-23 22:54:03", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/BTC-USD_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:03", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-23 22:54:04", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/SPY_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:04", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: TSLA"}
+{"timestamp": "2026-01-23 22:54:04", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/TSLA_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:04", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 4 files written"}
+{"timestamp": "2026-01-23 22:54:04", "level": "INFO", "logger": "__main__", "message": "Ingestion step completed"}
+{"timestamp": "2026-01-23 22:54:04", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-23 22:54:04", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: AAPL_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:05", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1522 rejected_rows=0"}
+{"timestamp": "2026-01-23 22:54:05", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/AAPL_2026-01-23_silver_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:05", "level": "INFO", "logger": "src.storage", "message": "Creating PostgreSQL engine"}
+{"timestamp": "2026-01-23 22:54:13", "level": "INFO", "logger": "src.storage", "message": "Database tables ensured"}
+{"timestamp": "2026-01-23 22:54:13", "level": "INFO", "logger": "src.storage", "message": "Inserting 1522 records into market_data"}
+{"timestamp": "2026-01-23 22:54:17", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-23 22:54:17", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-23 22:54:17", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-23 22:54:17", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: BTC-USD_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:17", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=2214 rejected_rows=0"}
+{"timestamp": "2026-01-23 22:54:17", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/BTC-USD_2026-01-23_silver_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:17", "level": "INFO", "logger": "src.storage", "message": "Inserting 2214 records into market_data"}
+{"timestamp": "2026-01-23 22:54:21", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-23 22:54:21", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-23 22:54:21", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-23 22:54:21", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: SPY_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:21", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1522 rejected_rows=0"}
+{"timestamp": "2026-01-23 22:54:21", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/SPY_2026-01-23_silver_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:21", "level": "INFO", "logger": "src.storage", "message": "Inserting 1522 records into market_data"}
+{"timestamp": "2026-01-23 22:54:25", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-23 22:54:25", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-23 22:54:25", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-23 22:54:25", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: TSLA_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:25", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1522 rejected_rows=0"}
+{"timestamp": "2026-01-23 22:54:25", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/TSLA_2026-01-23_silver_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:25", "level": "INFO", "logger": "src.storage", "message": "Inserting 1522 records into market_data"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "__main__", "message": "Running gold layer"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Loading 4 silver files"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 4 symbols"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to data\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 4 symbols"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to data\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "__main__", "message": "Gold layer completed"}
+{"timestamp": "2026-01-23 22:54:28", "level": "INFO", "logger": "__main__", "message": "Pipeline finished"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_gold_creates_output_files0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_gold_creates_output_files0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_gold_aggregates_schema_an0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_gold_aggregates_schema_an0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 2 symbols"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_gold_freshness_contract0\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 2 symbols"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_gold_freshness_contract0\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_ingestion_creates_files0\\bronze/AAPL_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_ingestion_creates_files0\\bronze/SPY_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_ingestion_csv_schema0\\bronze/AAPL_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_ingestion_csv_schema0\\bronze/SPY_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:41", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 2 assets"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_ingestion_symbol_column0\\bronze/AAPL_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: C:\\Users\\Harsh Rana\\AppData\\Local\\Temp\\pytest-of-Harsh Rana\\pytest-29\\test_ingestion_symbol_column0\\bronze/SPY_2026-01-23.csv"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 2 files written"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.storage", "message": "Using in-memory SQLite database for testing"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.storage", "message": "Database tables ensured"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.storage", "message": "Inserting 1 records into market_data"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-23 22:54:42", "level": "WARNING", "logger": "src.storage", "message": "No data provided to insert into silver layer"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=0"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=0 rejected_rows=1"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=1"}
+{"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=0"}
