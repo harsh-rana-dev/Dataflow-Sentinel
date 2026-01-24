@@ -1,4 +1,3 @@
-# src/logger.py
 import logging
 import os
 import json
@@ -8,18 +7,16 @@ from dotenv import load_dotenv
 # Load environment variables (safe in CI too)
 load_dotenv()
 
-# ----------------------------
+
 # Configuration
-# ----------------------------
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
 LOG_DIR = Path("logs")
 LOG_FILE = LOG_DIR / "pipeline_run.json"
 
 LOG_DIR.mkdir(exist_ok=True)
 
-# ----------------------------
+
 # JSON Formatter (file logs)
-# ----------------------------
 class JsonFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         log_record = {
@@ -38,11 +35,11 @@ class JsonFormatter(logging.Formatter):
         return json.dumps(log_record)
 
 
-# ----------------------------
+
 # Logger factory
-# ----------------------------
 def get_logger(name: str = "pipeline") -> logging.Logger:
     logger = logging.getLogger(name)
+
 
     # Prevent duplicate handlers
     if logger.handlers:
@@ -71,7 +68,4 @@ def get_logger(name: str = "pipeline") -> logging.Logger:
     return logger
 
 
-# ----------------------------
-# Default logger
-# ----------------------------
 logger = get_logger()
