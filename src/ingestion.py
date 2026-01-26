@@ -40,7 +40,6 @@ def fetch_asset_data(symbol: str, start_date: str, end_date: str) -> pd.DataFram
             progress=False,
         )
 
-        # Handle multi-index columns (yfinance quirk)
         if isinstance(df.columns, pd.MultiIndex):
             df.columns = df.columns.get_level_values(0)
 

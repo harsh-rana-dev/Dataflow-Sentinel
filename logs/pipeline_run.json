@@ -686,3 +686,86 @@
 {"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=0 rejected_rows=1"}
 {"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=1"}
 {"timestamp": "2026-01-23 22:54:42", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1 rejected_rows=0"}
+{"timestamp": "2026-01-26 17:32:39", "level": "INFO", "logger": "__main__", "message": "Pipeline started"}
+{"timestamp": "2026-01-26 17:32:39", "level": "INFO", "logger": "src.ingestion", "message": "Loaded 4 assets from config"}
+{"timestamp": "2026-01-26 17:32:39", "level": "INFO", "logger": "src.ingestion", "message": "Starting ingestion for 4 assets"}
+{"timestamp": "2026-01-26 17:32:39", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: AAPL"}
+{"timestamp": "2026-01-26 17:32:43", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/AAPL_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:32:43", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: BTC-USD"}
+{"timestamp": "2026-01-26 17:32:44", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/BTC-USD_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:32:44", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: SPY"}
+{"timestamp": "2026-01-26 17:32:44", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/SPY_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:32:44", "level": "INFO", "logger": "src.ingestion", "message": "Fetching data for asset: TSLA"}
+{"timestamp": "2026-01-26 17:32:45", "level": "INFO", "logger": "src.ingestion", "message": "Bronze data written: data/bronze/TSLA_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:32:45", "level": "INFO", "logger": "src.ingestion", "message": "Ingestion completed. 4 files written"}
+{"timestamp": "2026-01-26 17:32:45", "level": "INFO", "logger": "__main__", "message": "Ingestion step completed"}
+{"timestamp": "2026-01-26 17:32:45", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-26 17:32:45", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: AAPL_2026-01-23.csv"}
+{"timestamp": "2026-01-26 17:32:45", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1522 rejected_rows=0"}
+{"timestamp": "2026-01-26 17:32:45", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/AAPL_2026-01-23_silver_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:32:45", "level": "INFO", "logger": "src.storage", "message": "Creating PostgreSQL engine"}
+{"timestamp": "2026-01-26 17:32:52", "level": "INFO", "logger": "src.storage", "message": "Database tables ensured"}
+{"timestamp": "2026-01-26 17:32:52", "level": "INFO", "logger": "src.storage", "message": "Inserting 1522 records into market_data"}
+{"timestamp": "2026-01-26 17:32:57", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-26 17:32:57", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-26 17:32:57", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-26 17:32:57", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: AAPL_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:32:57", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1523 rejected_rows=0"}
+{"timestamp": "2026-01-26 17:32:57", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/AAPL_2026-01-26_silver_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:32:57", "level": "INFO", "logger": "src.storage", "message": "Inserting 1523 records into market_data"}
+{"timestamp": "2026-01-26 17:33:00", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-26 17:33:00", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-26 17:33:00", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-26 17:33:00", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: BTC-USD_2026-01-23.csv"}
+{"timestamp": "2026-01-26 17:33:00", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=2214 rejected_rows=0"}
+{"timestamp": "2026-01-26 17:33:00", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/BTC-USD_2026-01-23_silver_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:33:00", "level": "INFO", "logger": "src.storage", "message": "Inserting 2214 records into market_data"}
+{"timestamp": "2026-01-26 17:33:05", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-26 17:33:05", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-26 17:33:05", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-26 17:33:05", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: BTC-USD_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:33:05", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=2217 rejected_rows=0"}
+{"timestamp": "2026-01-26 17:33:05", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/BTC-USD_2026-01-26_silver_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:33:05", "level": "INFO", "logger": "src.storage", "message": "Inserting 2217 records into market_data"}
+{"timestamp": "2026-01-26 17:33:11", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-26 17:33:11", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-26 17:33:11", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-26 17:33:11", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: SPY_2026-01-23.csv"}
+{"timestamp": "2026-01-26 17:33:11", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1522 rejected_rows=0"}
+{"timestamp": "2026-01-26 17:33:11", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/SPY_2026-01-23_silver_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:33:11", "level": "INFO", "logger": "src.storage", "message": "Inserting 1522 records into market_data"}
+{"timestamp": "2026-01-26 17:33:15", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-26 17:33:15", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-26 17:33:15", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-26 17:33:15", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: SPY_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:33:15", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1523 rejected_rows=0"}
+{"timestamp": "2026-01-26 17:33:15", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/SPY_2026-01-26_silver_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:33:15", "level": "INFO", "logger": "src.storage", "message": "Inserting 1523 records into market_data"}
+{"timestamp": "2026-01-26 17:33:19", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-26 17:33:19", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-26 17:33:19", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-26 17:33:19", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: TSLA_2026-01-23.csv"}
+{"timestamp": "2026-01-26 17:33:19", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1522 rejected_rows=0"}
+{"timestamp": "2026-01-26 17:33:19", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/TSLA_2026-01-23_silver_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:33:19", "level": "INFO", "logger": "src.storage", "message": "Inserting 1522 records into market_data"}
+{"timestamp": "2026-01-26 17:33:23", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-26 17:33:23", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-26 17:33:23", "level": "INFO", "logger": "__main__", "message": "Processing bronze file"}
+{"timestamp": "2026-01-26 17:33:23", "level": "INFO", "logger": "pipeline", "message": "Validating bronze file: TSLA_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:33:24", "level": "INFO", "logger": "pipeline", "message": "Silver validation completed | valid_rows=1523 rejected_rows=0"}
+{"timestamp": "2026-01-26 17:33:24", "level": "INFO", "logger": "pipeline", "message": "Silver data written: data/silver/TSLA_2026-01-26_silver_2026-01-26.csv"}
+{"timestamp": "2026-01-26 17:33:24", "level": "INFO", "logger": "src.storage", "message": "Inserting 1523 records into market_data"}
+{"timestamp": "2026-01-26 17:33:27", "level": "INFO", "logger": "src.storage", "message": "Silver-layer insert completed"}
+{"timestamp": "2026-01-26 17:33:27", "level": "INFO", "logger": "__main__", "message": "Silver data stored successfully"}
+{"timestamp": "2026-01-26 17:33:27", "level": "INFO", "logger": "__main__", "message": "Running gold layer"}
+{"timestamp": "2026-01-26 17:33:27", "level": "INFO", "logger": "src.gold_metrics", "message": "Starting gold layer"}
+{"timestamp": "2026-01-26 17:33:27", "level": "INFO", "logger": "src.gold_metrics", "message": "Loading 12 silver files"}
+{"timestamp": "2026-01-26 17:33:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing gold aggregates"}
+{"timestamp": "2026-01-26 17:33:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed aggregates for 4 symbols"}
+{"timestamp": "2026-01-26 17:33:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Aggregates written to data\\gold\\aggregates.csv"}
+{"timestamp": "2026-01-26 17:33:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Computing data freshness signals"}
+{"timestamp": "2026-01-26 17:33:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Computed freshness for 4 symbols"}
+{"timestamp": "2026-01-26 17:33:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Freshness data written to data\\gold\\data_freshness.json"}
+{"timestamp": "2026-01-26 17:33:28", "level": "INFO", "logger": "src.gold_metrics", "message": "Gold layer completed successfully"}
+{"timestamp": "2026-01-26 17:33:28", "level": "INFO", "logger": "__main__", "message": "Gold layer completed"}
+{"timestamp": "2026-01-26 17:33:28", "level": "INFO", "logger": "__main__", "message": "Pipeline finished"}

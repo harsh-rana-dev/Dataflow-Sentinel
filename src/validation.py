@@ -22,10 +22,7 @@ class MarketDataRow(BaseModel):
 
 
 def validate_bronze_dataframe(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Validate raw bronze dataframe and return a clean silver dataframe.
-    Invalid rows are dropped with metrics logged.
-    """
+
     valid_rows: List[dict] = []
     rejected = 0
 
@@ -57,9 +54,7 @@ def validate_bronze_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def validate_bronze_csv(path: Path) -> pd.DataFrame:
-    """
-    Load a bronze CSV file and validate its contents.
-    """
+
     logger.info("Validating bronze file: %s", path.name)
 
     df = pd.read_csv(path)
@@ -67,9 +62,7 @@ def validate_bronze_csv(path: Path) -> pd.DataFrame:
 
 
 def save_silver_dataframe(df: pd.DataFrame, source_file: Path) -> Path:
-    """
-    Persist validated silver dataframe to disk.
-    """
+
     SILVER_DIR.mkdir(parents=True, exist_ok=True)
 
     run_date = datetime.now(timezone.utc).date().isoformat()

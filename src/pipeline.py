@@ -7,7 +7,7 @@ from src.storage import insert_silver_dataframe, get_db_engine
 from src.gold_metrics import run_gold_layer
 from src.logger import get_logger
 
-logger = get_logger(__name__)   # ← THIS WAS MISSING
+logger = get_logger(__name__)  
 
 BRONZE_DIR = Path("data/bronze")
 
@@ -17,7 +17,6 @@ def run_pipeline() -> None:
 
     end_date = datetime.now(timezone.utc).date().isoformat()
 
-    # Ingestion
     try:
         ingest_all_assets(
             start_date="2020-01-01",
@@ -28,7 +27,6 @@ def run_pipeline() -> None:
         logger.error("Ingestion step failed", exc_info=exc)
         return
 
-    # Validation + Silver storage
     bronze_files = list(BRONZE_DIR.glob("*.csv"))
 
     if not bronze_files:
@@ -62,7 +60,6 @@ def run_pipeline() -> None:
                     extra={"file": bronze_file.name},
                 )
 
-    # Gold layer
     try:
         logger.info("Running gold layer")
         run_gold_layer()

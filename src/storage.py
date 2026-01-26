@@ -29,9 +29,7 @@ metadata = MetaData()
 _engine: Optional[object] = None
 
 
-# ----------------------------
 # Database Engine
-# ----------------------------
 
 def get_engine():
     """Create a database engine (Postgres in prod, SQLite in tests)."""
@@ -73,9 +71,7 @@ def get_db_engine():
     return _engine
 
 
-# ----------------------------
 # Table Definition
-# ----------------------------
 
 market_data = Table(
     "market_data",
@@ -92,9 +88,8 @@ market_data = Table(
 )
 
 
-# ----------------------------
+
 # Insert Logic
-# ----------------------------
 
 def insert_silver_dataframe(df: pd.DataFrame, batch_size: int = 500) -> None:
     if df is None or df.empty:
