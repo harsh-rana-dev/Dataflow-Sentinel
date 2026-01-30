@@ -3,7 +3,7 @@ name: Sentinel Pipeline
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 11 * * *" # 5 PM IST
+    - cron: "30 11 * * *" # 5:15 PM IST
 
 jobs:
   run-pipeline:
