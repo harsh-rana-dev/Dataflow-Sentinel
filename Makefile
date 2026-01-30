@@ -22,3 +22,9 @@ docker-all:
 	- docker compose exec app make run
 	- docker compose exec app make test
 	docker compose down
+
+clean:
+	rm -rf data/bronze/*
+	rm -rf data/silver/*
+#	rm -rf data/gold/*
+
