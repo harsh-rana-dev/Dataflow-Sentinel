@@ -1,5 +1,4 @@
 import os
-import urllib.parse
 from typing import Optional
 
 import pandas as pd
@@ -21,43 +20,35 @@ from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 
 from src.logger import get_logger
 
-
 logger = get_logger(__name__)
 load_dotenv()
 
 metadata = MetaData()
 _engine: Optional[object] = None
 
-
-# Database Engine
+# --- Database Engine ---
 
 def get_engine():
-    """Create a database engine (Postgres in prod, SQLite in tests)."""
 
     if os.getenv("TESTING") == "1":
         logger.info("Using in-memory SQLite database for testing")
         return create_engine("sqlite:///:memory:", echo=False)
 
-    user = os.getenv("DB_USER")
-    password = os.getenv("DB_PASSWORD")
-    host = os.getenv("DB_HOST")
-    port = os.getenv("DB_PORT", 5432)
-    name = os.getenv("DB_NAME")
+    conn_str = os.getenv("DATABASE_URL")
 
-    if not all([user, password, host, name]):
-        logger.error("Missing database environment variables")
+    if not conn_str:
+        logger.error("Missing DATABASE_URL in environment variables")
         raise RuntimeError("Database configuration incomplete")
 
-    safe_password = urllib.parse.quote_plus(password)
+    if conn_str.startswith("postgres://"):
+        conn_str = conn_str.replace("postgres://", "postgresql://", 1)
 
-    conn_str = (
-        f"postgresql+psycopg2://{user}:{safe_password}"
-        f"@{host}:{port}/{name}?sslmode=require"
+    logger.info("Creating PostgreSQL engine from DATABASE_URL")
+    return create_engine(
+        conn_str, 
+        echo=False, 
+        pool_pre_ping=True 
     )
-
-    logger.info("Creating PostgreSQL engine")
-    return create_engine(conn_str, echo=False, pool_pre_ping=True)
-
 
 def get_db_engine():
     """Singleton DB engine initializer."""
@@ -70,8 +61,7 @@ def get_db_engine():
 
     return _engine
 
-
-# Table Definition
+# --- Table Definition ---
 
 market_data = Table(
     "market_data",
@@ -87,9 +77,7 @@ market_data = Table(
     UniqueConstraint("symbol", "date", name="uq_symbol_date"),
 )
 
-
-
-# Insert Logic
+# --- Insert Logic (Idempotent) ---
 
 def insert_silver_dataframe(df: pd.DataFrame, batch_size: int = 500) -> None:
     if df is None or df.empty:
