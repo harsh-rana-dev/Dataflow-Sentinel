@@ -1,6 +1,16 @@
 assets:
 - AAPL
 - BTC-USD
+- ETH-USD
 - SPY
 - TSLA
+- GC=F
 
+start_date: "2020-01-01"
+end_date: null
+
+paths:
+  bronze: "data/bronze"
+  silver: "data/silver"
+  gold: "data/gold"
+  logs: "logs"

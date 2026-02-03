@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: 'pip'
 
       - name: Install dependencies
         run: |
@@ -24,18 +25,19 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests
-        run: |
-          python -m pytest -v tests/
+        env:
+          TESTING: "1" 
+        run: python -m pytest -v tests/
 
       - name: Run pipeline
+        if: success() 
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        run: |
-          python -m src.pipeline
+        run: python -m src.pipeline
 
       - name: Upload logs
-        if: always()
+        if: always() 
         uses: actions/upload-artifact@v4
         with:
           name: pipeline-logs
-          path: logs/pipeline_run.json
+          path: logs/*.json

@@ -2,82 +2,80 @@ from pathlib import Path
 import json
 import pandas as pd
 import pytest
-
+from datetime import datetime, timezone
 import src.gold_metrics as gold
 
-
+# # Provides a representative sample of Silver-layer data for testing
 @pytest.fixture
 def fake_silver_df():
-    return pd.DataFrame(
-        {
-            "symbol": ["AAPL", "AAPL", "BTC-USD"],
-            "date": pd.to_datetime(
-                ["2026-01-08", "2026-01-10", "2026-01-10"]
-            ),
-            "close": [145.0, 150.0, 42000.0],
-            "volume": [900000, 1000000, 500000],
-        }
-    )
+    return pd.DataFrame({
+        "symbol": ["AAPL", "AAPL", "BTC-USD"],
+        "date": pd.to_datetime(["2026-01-08", "2026-01-10", "2026-01-10"]),
+        "close": [145.0, 150.0, 42000.0],
+        "volume": [900000, 1000000, 500000],
+    })
 
-
+# # Sets up isolated temporary directories and mocks the data loader
 @pytest.fixture
 def isolated_gold_env(tmp_path, monkeypatch, fake_silver_df):
-    """
-    Fully isolate gold layer from real filesystem and IO.
-    """
     silver_dir = tmp_path / "silver"
     gold_dir = tmp_path / "gold"
     silver_dir.mkdir()
     gold_dir.mkdir()
 
-    monkeypatch.setattr(gold, "SILVER_DIR", silver_dir)
-    monkeypatch.setattr(gold, "GOLD_DIR", gold_dir)
-    monkeypatch.setattr(gold, "AGGREGATES_FILE", gold_dir / "aggregates.csv")
-    monkeypatch.setattr(gold, "FRESHNESS_FILE", gold_dir / "data_freshness.json")
+    # We mock the loader to return our dataframe instead of reading from disk
+    monkeypatch.setattr(gold, "load_all_silver_data", lambda silver_dir: fake_silver_df)
 
-    monkeypatch.setattr(gold, "load_all_silver_data", lambda: fake_silver_df)
+    return silver_dir, gold_dir
 
-    return gold_dir
-
-
+# # Verifies that the Gold layer correctly generates both CSV and JSON artifacts
 def test_gold_creates_output_files(isolated_gold_env):
-    gold.run_gold_layer()
+    silver_dir, gold_dir = isolated_gold_env
+    
+    # IMPROVEMENT: Calling with explicit path injection
+    gold.run_gold_layer(silver_dir=silver_dir, gold_dir=gold_dir)
 
-    assert (isolated_gold_env / "aggregates.csv").exists()
-    assert (isolated_gold_env / "data_freshness.json").exists()
+    assert (gold_dir / "aggregates.csv").exists()
+    assert (gold_dir / "freshness.json").exists()
 
-
+# # Ensures the calculated metrics (averages, latest price) are accurate and formatted correctly
 def test_gold_aggregates_schema_and_values(isolated_gold_env):
-    gold.run_gold_layer()
+    silver_dir, gold_dir = isolated_gold_env
+    gold.run_gold_layer(silver_dir, gold_dir)
 
-    df = pd.read_csv(isolated_gold_env / "aggregates.csv")
-
+    df = pd.read_csv(gold_dir / "aggregates.csv")
     expected_columns = {
-        "symbol",
-        "latest_date",
-        "latest_close",
-        "avg_7d_close",
-        "avg_30d_close",
-        "latest_volume",
+        "symbol", "latest_date", "latest_close", 
+        "avg_7d_close", "avg_30d_close", "latest_volume"
     }
 
     assert expected_columns.issubset(df.columns)
-    assert df["symbol"].nunique() == 2
-    assert (df["latest_close"] > 0).all()
-    assert (df["latest_volume"] > 0).all()
+    assert df[df["symbol"] == "AAPL"]["latest_close"].iloc[0] == 150.0
+    # Check if 7d average is correctly calculated ( (145+150)/2 )
+    assert df[df["symbol"] == "AAPL"]["avg_7d_close"].iloc[0] == 147.5
 
-
+# # Validates the freshness JSON structure and status logic
 def test_gold_freshness_contract(isolated_gold_env):
-    gold.run_gold_layer()
+    silver_dir, gold_dir = isolated_gold_env
+    gold.run_gold_layer(silver_dir, gold_dir)
 
-    with open(isolated_gold_env / "data_freshness.json") as f:
+    with open(gold_dir / "freshness.json") as f:
         data = json.load(f)
 
-    assert isinstance(data, dict)
     assert set(data.keys()) == {"AAPL", "BTC-USD"}
+    
+    # IMPROVEMENT: Updated keys to match the new src/gold_metrics.py implementation
+    for symbol in data:
+        payload = data[symbol]
+        assert "last_date" in payload
+        assert "days_stale" in payload
+        assert "status" in payload
+        assert payload["status"] in ["FRESH", "STALE"]
 
-    for payload in data.values():
-        assert "last_available_date" in payload
-        assert "days_since_update" in payload
-        assert "is_stale" in payload
-        assert payload["days_since_update"] >= 0
+# # IMPROVEMENT: Added test for the "Empty Silver Layer" exception
+def test_gold_raises_error_on_missing_files(tmp_path):
+    empty_dir = tmp_path / "empty"
+    empty_dir.mkdir()
+    
+    with pytest.raises(FileNotFoundError, match="Empty Silver Layer"):
+        gold.load_all_silver_data(empty_dir)

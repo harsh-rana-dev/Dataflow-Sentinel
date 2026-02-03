@@ -1,87 +1,76 @@
 from pathlib import Path
 import pandas as pd
 import pytest
-
 import src.ingestion as ingestion
 
-
+# # Provides a standard mock yfinance DataFrame for consistent testing
 @pytest.fixture
 def fake_yfinance_df():
-    return pd.DataFrame(
-        {
-            "Date": pd.to_datetime(
-                ["2024-01-02", "2024-01-03", "2024-01-04"]
-            ),
-            "Open": [100.0, 101.0, 102.0],
-            "High": [105.0, 106.0, 107.0],
-            "Low": [99.0, 100.0, 101.0],
-            "Close": [104.0, 105.0, 106.0],
-            "Volume": [1000, 1100, 1200],
-        }
-    )
+    return pd.DataFrame({
+        "Date": pd.to_datetime(["2024-01-02", "2024-01-03"]),
+        "Open": [100.0, 101.0],
+        "High": [105.0, 106.0],
+        "Low": [99.0, 100.0],
+        "Close": [104.0, 105.0],
+        "Volume": [1000, 1100],
+    })
 
-
+# # IMPROVEMENT: Added a MultiIndex mock to test the column flattening logic
 @pytest.fixture
-def isolated_ingestion_env(tmp_path, monkeypatch, fake_yfinance_df):
-    """
-    Fully isolate ingestion from filesystem and external APIs.
-    """
-    bronze_dir = tmp_path / "bronze"
-    bronze_dir.mkdir()
+def fake_multiindex_df():
+    columns = pd.MultiIndex.from_tuples([
+        ('Close', 'AAPL'), ('Open', 'AAPL'), ('High', 'AAPL'), ('Low', 'AAPL'), ('Volume', 'AAPL')
+    ])
+    data = [[150.0, 149.0, 155.0, 148.0, 1000]]
+    return pd.DataFrame(data, columns=columns, index=pd.to_datetime(["2024-01-01"]))
 
-    monkeypatch.setattr(ingestion, "BRONZE_DIR", str(bronze_dir))
-    monkeypatch.setattr(ingestion, "load_assets", lambda: ["AAPL", "SPY"])
-
-    def fake_download(symbol, start, end, progress):
-        df = fake_yfinance_df.copy()
-        return df
-
-    monkeypatch.setattr(ingestion.yf, "download", fake_download)
-
-    return bronze_dir
-
-
-def test_ingestion_creates_files(isolated_ingestion_env):
+# # Verifies that the code correctly handles yfinance's multi-level column headers
+def test_ingestion_flattens_multiindex(tmp_path, monkeypatch, fake_multiindex_df):
+    bronze_dir = tmp_path / "multi_test"
+    
+    # Mock yfinance to return a complex MultiIndex DF
+    monkeypatch.setattr(ingestion.yf, "download", lambda *args, **kwargs: fake_multiindex_df)
+    
     files = ingestion.ingest_all_assets(
+        tickers=["AAPL"],
+        start_date="2024-01-01",
+        end_date="2024-01-02",
+        bronze_dir=bronze_dir
+    )
+    
+    df = pd.read_csv(files[0])
+    # If flattening works, 'Close' should be a top-level string, not a tuple
+    assert "Close" in df.columns
+    assert "symbol" in df.columns
+    assert df["symbol"].iloc[0] == "AAPL"
+
+# # IMPROVEMENT: Test for file naming convention 
+def test_ingestion_naming_convention(tmp_path, monkeypatch, fake_yfinance_df):
+    bronze_dir = tmp_path / "name_test"
+    monkeypatch.setattr(ingestion.yf, "download", lambda *args, **kwargs: fake_yfinance_df)
+    
+    files = ingestion.ingest_all_assets(
+        tickers=["BTC-USD"],
+        start_date="2024-01-01",
+        end_date="2024-01-02",
+        bronze_dir=bronze_dir
+    )
+    
+    filename = Path(files[0]).name
+    assert filename.startswith("BTC-USD_")
+    assert filename.endswith(".csv")
+
+# # Tests the behavior when the API returns no data
+def test_ingestion_handles_empty_api_response(tmp_path, monkeypatch):
+    bronze_dir = tmp_path / "empty_test"
+    # Mock an empty download
+    monkeypatch.setattr(ingestion.yf, "download", lambda *args, **kwargs: pd.DataFrame())
+    
+    files = ingestion.ingest_all_assets(
+        tickers=["VOID"],
         start_date="2024-01-01",
         end_date="2024-01-05",
+        bronze_dir=bronze_dir
     )
-
-    assert len(files) == 2
-
-    for file in files:
-        path = Path(file)
-        assert path.exists()
-        assert path.stat().st_size > 0
-
-
-def test_ingestion_csv_schema(isolated_ingestion_env):
-    files = ingestion.ingest_all_assets(
-        start_date="2024-01-01",
-        end_date="2024-01-05",
-    )
-
-    expected_columns = {
-        "Date",
-        "Open",
-        "High",
-        "Low",
-        "Close",
-        "Volume",
-        "symbol",
-    }
-
-    for file in files:
-        df = pd.read_csv(file)
-        assert expected_columns.issubset(df.columns)
-
-
-def test_ingestion_symbol_column(isolated_ingestion_env):
-    files = ingestion.ingest_all_assets(
-        start_date="2024-01-01",
-        end_date="2024-01-05",
-    )
-
-    for file in files:
-        df = pd.read_csv(file)
-        assert df["symbol"].nunique() == 1
+    
+    assert len(files) == 0

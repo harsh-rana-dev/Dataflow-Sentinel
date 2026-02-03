@@ -2,18 +2,8 @@ import logging
 import os
 import json
 from pathlib import Path
-from dotenv import load_dotenv
 
-load_dotenv()
-
-
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
-LOG_DIR = Path("logs")
-LOG_FILE = LOG_DIR / "pipeline_run.json"
-
-LOG_DIR.mkdir(exist_ok=True)
-
-
+# # Formats log records into JSON for cloud-native observability
 class JsonFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         log_record = {
@@ -22,43 +12,29 @@ class JsonFormatter(logging.Formatter):
             "logger": record.name,
             "message": record.getMessage(),
         }
-
         if record.exc_info:
             log_record["exception"] = self.formatException(record.exc_info)
-
-        if hasattr(record, "extra"):
-            log_record.update(record.extra)
-
         return json.dumps(log_record)
 
-
-
-def get_logger(name: str = "pipeline") -> logging.Logger:
+# # Configures a dual-handler logger for console output and JSON file storage
+def get_logger(name: str = "pipeline", log_dir: Path = Path("logs")) -> logging.Logger:
     logger = logging.getLogger(name)
-
-
     if logger.handlers:
         return logger
 
-    logger.setLevel(LOG_LEVEL)
+    level = os.getenv("LOG_LEVEL", "INFO").upper()
+    logger.setLevel(level)
 
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(LOG_LEVEL)
-    console_formatter = logging.Formatter(
-        "%(asctime)s | %(levelname)s | %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
-    )
-    console_handler.setFormatter(console_formatter)
+    # Console Handler (Human Readable)
+    ch = logging.StreamHandler()
+    ch.setFormatter(logging.Formatter("%(asctime)s | %(levelname)s | %(message)s"))
+    
+    # File Handler (Machine Readable JSON)
+    log_dir.mkdir(exist_ok=True)
+    fh = logging.FileHandler(log_dir / "pipeline.json")
+    fh.setFormatter(JsonFormatter())
 
-    file_handler = logging.FileHandler(LOG_FILE)
-    file_handler.setLevel(LOG_LEVEL)
-    file_handler.setFormatter(JsonFormatter())
-
-    logger.addHandler(console_handler)
-    logger.addHandler(file_handler)
-
+    logger.addHandler(ch)
+    logger.addHandler(fh)
     logger.propagate = False
     return logger
-
-
-logger = get_logger()
