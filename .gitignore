@@ -1,17 +1,21 @@
+# Python
 __pycache__/
 *.py[cod]
+.pytest_cache/
 
+# Virtual environments
 .venv/
 venv/
 
+# Environment files
 .env
+.env.local
 
+# Logs
 logs/
+!.gitkeep
 
+# Data layers
 data/bronze/
 data/silver/
 data/gold/
-!data/gold/aggregates.csv
-!data/gold/data_freshness.json
-
-.pytest_cache/

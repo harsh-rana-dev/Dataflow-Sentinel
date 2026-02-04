@@ -1,0 +1,23 @@
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment files (secrets)
+.env
+.env.local
+.env.example
+.env.local.example
+
+# Git
+.git/
+.github/
+
+# Runtime artifacts
+data/
+logs/
+

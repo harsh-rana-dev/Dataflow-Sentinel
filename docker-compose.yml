@@ -1,21 +1,22 @@
 services:
-  postgres:
-    image: postgres:16
-    container_name: sentinel_postgres
-    restart: always
-    environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+  pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
 
-volumes:
-  postgres_data:
+    image: dataflow-sentinel:latest
+    container_name: dataflow-sentinel
+
+    env_file:
+      - .env.local
+
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    command: python -m src.pipeline
+
+

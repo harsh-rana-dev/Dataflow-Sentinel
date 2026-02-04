@@ -11,17 +11,20 @@ install: requirements.txt
 	python -m pip install --upgrade pip
 	pip install -r requirements.txt
 
-run:
-	python -m src.pipeline
-
 test:
 	python -m pytest -v tests/
 
-docker-all:
-	docker compose up -d --build
-	- docker compose exec app make run
-	- docker compose exec app make test
-	docker compose down
+run:
+	python -m src.pipeline
+
+docker_test:
+	docker compose run --rm pipeline python -m pytest -v tests/
+
+docker_run:
+	docker compose run --rm pipeline
+
+docker_all: docker-test docker-run
+
 
 clean:
 	rm -rf data/bronze/*
