@@ -1,11 +1,14 @@
-.PHONY: help install run test docker-all
+.PHONY: help install run test clean docker_build docker_test docker_run docker_all docker_clean
 
 help:
 	@echo "Available commands:"
-	@echo "  make install       Install Python dependencies"
-	@echo "  make run           Run the Sentinel Pipeline"
-	@echo "  make test          Run all tests"
-	@echo "  make docker-all    Run the Sentinel Pipeline inside Docker (full execution)"
+	@echo "  make install        Install Python dependencies"
+	@echo "  make run            Run the Sentinel Pipeline"
+	@echo "  make test           Run all tests"
+	@echo "  make docker_all     Build, test, and run inside Docker"
+	@echo "  make docker_clean   Remove Docker containers, volumes, and orphans"
+	@echo "  make clean          Remove local data artifacts"
+
 
 install: requirements.txt
 	python -m pip install --upgrade pip
@@ -17,17 +20,23 @@ test:
 run:
 	python -m src.pipeline
 
-docker_test:
+
+docker_build:
+	docker compose build
+
+docker_test: docker_build
 	docker compose run --rm pipeline python -m pytest -v tests/
 
-docker_run:
+docker_run: docker_build
 	docker compose run --rm pipeline
 
-docker_all: docker-test docker-run
+docker_all: docker_test docker_run
+
+docker_clean:
+	docker compose down --volumes --remove-orphans
 
 
 clean:
 	rm -rf data/bronze/*
 	rm -rf data/silver/*
-#	rm -rf data/gold/*
-
+  # rm -rf data/gold/*
