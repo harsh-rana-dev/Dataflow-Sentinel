@@ -1,246 +1,255 @@
-# DATAFLOW-SENTINEL  
-**Production-Ready Market Data Pipeline with Monitoring & Alerts**
-
----
+# DATAFLOW-SENTINEL
+Production-inspired DataOps pipeline with freshness monitoring and CI-driven alerting
 
 ## Overview
 
-**DATAFLOW-SENTINEL** is a production-oriented batch data pipeline that ingests, validates, transforms, and monitors market data for equities and cryptocurrencies.
+DATAFLOW-SENTINEL is a production-inspired **DataOps pipeline and monitoring system** that ingests financial market data, validates schema and quality, processes it through a layered storage model, and continuously tracks data freshness and reliability.
 
-The project is designed to demonstrate **real-world DataOps and Data Engineering practices**, focusing on **reliability, observability, and operational clarity**.
+The project solves a common real-world problem: **data pipelines that “run” but silently degrade or go stale**. DATAFLOW-SENTINEL makes failures visible through validation, logging, freshness metrics, and automated notifications.
 
-This repository reflects how a small but production-grade pipeline is built, tested, monitored, and maintained in a professional environment.
-
----
-
-## Why This Project Exists
-
-Many portfolio projects focus on tools rather than outcomes.  
-DATAFLOW-SENTINEL focuses on **operational correctness**.
-
-It demonstrates the ability to:
-- Build pipelines that **fail loudly, not silently**
-- Enforce **data quality and freshness**
-- Provide **clear signals when things go wrong**
-- Support **repeatable recovery actions**
-- Keep the system **simple and maintainable**
+This project is designed to demonstrate **production-ready DataOps and Analytics Engineering practices** for recruiters and hiring managers, showcasing practical pipeline design, operational thinking, and CI-driven automation.
 
 ---
 
-## Key Capabilities
+## Architecture Summary
 
-- Daily automated data ingestion
-- Layered data architecture (Bronze / Silver / Gold)
-- Schema validation and fail-fast behavior
-- Structured logging for observability
-- Data freshness monitoring
-- Automated tests and CI workflows
-- Email alerts on pipeline success or failure
+DATAFLOW-SENTINEL follows a **Medallion Architecture**:
 
----
+**Bronze → Silver → Gold**
 
-## Data Sources & Assets
+* **Bronze**: raw market data ingested from Yahoo Finance
+* **Silver**: validated, schema-enforced datasets
+* **Gold**: analytics-ready aggregates and freshness metrics
 
-- **Source**: Yahoo Finance
-- **Assets**:
-  - Equities: `AAPL`, `SPY`, `TSLA`
-  - Cryptocurrency: `BTC-USD`
+The pipeline is orchestrated centrally and runs identically across **local**, **Docker**, and **GitHub Actions** environments.
+
+📄 Detailed design: see **ARCHITECTURE.md**
 
 ---
 
-## Architecture Overview
+## Project Structure
 
-```
-Yahoo Finance
-│
-▼
-Bronze Layer (Raw CSV)
-│
-▼
-Silver Layer (Validated & Cleaned)
-│
-▼
-Gold Layer (Aggregates & Freshness Checks)
+Key directories and their responsibilities:
 
-```
+* `src/`  
+  Core pipeline logic (ingestion, validation, storage, metrics, orchestration)
 
----
+* `data/`  
+  Layered data storage:
+  * `bronze/` – raw ingested data  
+  * `silver/` – validated datasets  
+  * `gold/` – aggregates and monitoring artifacts  
 
-## Data Layers
+* `tests/`  
+  Pytest-based unit and integration-style tests mirroring `src/`
 
-### Bronze Layer — Raw Ingestion
-- Stores raw CSV data per asset
-- No destructive transformations
-- Enables traceability and replay
+* `config/`  
+  Runtime configuration (`assets.yaml`, pipeline parameters)
 
-📁 `data/bronze/`
+* `logs/`  
+  Structured logs for debugging and auditability
+
+This structure mirrors production DataOps systems and enforces clear separation of concerns.
 
 ---
 
-### Silver Layer — Validated Data
-- Schema and type validation
-- Missing or malformed record handling
-- Optional PostgreSQL persistence
+## Pipeline Flow
 
-📁 `data/silver/`
+1. **Ingestion**
+   * Pulls market data from Yahoo Finance
+   * Assets defined in `assets.yaml`
+   * Writes raw data to the Bronze layer
 
----
+2. **Validation**
+   * Enforces schema and data quality using **Pydantic**
+   * Blocks invalid or incomplete datasets
 
-### Gold Layer — Analytics & Monitoring
-- Aggregated metrics
-- Data freshness evaluation
-- Health indicators for downstream consumers
+3. **Storage**
+   * Promotes data through Bronze → Silver → Gold
+   * Centralized storage abstraction
 
-📁 `data/gold/`
-- `aggregates.csv`
-- `data_freshness.json`
+4. **Metrics**
+   * Computes aggregated analytics outputs
+   * Calculates data freshness indicators
 
----
-
-## Testing Strategy
-
-Automated tests verify:
-- Validation logic
-- Transformation correctness
-- Failure scenarios
-
-Tests are designed to **fail fast** and surface actionable errors.
-
-Run locally:
-```bash
-make test
-```
+5. **Monitoring**
+   * Writes `freshness.json`
+   * Triggers alerts via CI when expectations are violated
 
 ---
 
-## Running the Pipeline Locally
+## How to Run
 
-### Requirements
-
-* Python 3.10+
-* `make`
-* Virtual environment recommended
-
-### Install dependencies
-
-```bash
-make install
-```
-
-### Run the pipeline
+### Local Run
 
 ```bash
 make run
+````
+
+Uses local environment configuration and **Neon PostgreSQL** when configured via environment variables.
+
+---
+
+### Docker Run
+
+```bash
+make docker_run
 ```
 
----
-
-## Logging & Observability
-
-Each run produces a structured log file:
-
-📄 `logs/pipeline_run.json`
-
-Logs include:
-
-* Execution timestamps
-* Step-level outcomes
-* Error context and failure reasons
-
-The format is suitable for both human inspection and future log ingestion systems.
+Runs the full pipeline inside a containerized environment with a local PostgreSQL instance.
 
 ---
 
-## Alerts & Notifications
+### CI / GitHub Actions
 
-* Email notifications are sent via GitHub Actions
-* Notifications are triggered on:
-
-  * Successful pipeline completion
-  * Pipeline failure
-* Emails contain **only high-level status** to avoid noise
-
-Detailed diagnostics remain available via GitHub Actions logs and artifacts.
-
-Alert response procedures are documented in:
-
-📄 `docs/NOTIFY_TEAM.md`
+* Scheduled daily runs
+* Manual workflow dispatch
+* Uses **Neon PostgreSQL**
+* Sends email notifications on success or failure
 
 ---
 
-## Scheduling & Automation
+## Configuration
 
-* Pipeline runs **daily** via GitHub Actions
-* Manual re-runs supported
-* CI validates tests on every change
+### Assets Configuration
 
-Workflow files:
+`config/assets.yaml` defines tracked assets:
 
-* `.github/workflows/daily_run.yml`
-* `.github/workflows/email-notify.yml`
+* AAPL
+* BTC-USD
+* ETH-USD
+* SPY
+* TSLA
+* GC=F
 
----
-
-## Docker Status (Intentional Design Choice)
-
-A minimal `docker-compose.yml` exists for PostgreSQL experimentation and future expansion.
-
-Current design choice:
-
-* Pipeline runs **natively**
-* Docker is **not required at this stage**
-
-Reasoning:
-
-* Keeps the system simpler
-* Avoids unnecessary operational overhead
-* Matches early-stage production realities
-
-Full containerized execution is planned as a **future enhancement**, not a premature optimization.
+This decouples pipeline logic from runtime configuration.
 
 ---
 
-## Repository Structure
+### Environment Variables
 
-```
-DATAFLOW-SENTINEL/
-├── .github/workflows/
-├── config/
-│   └── assets.yaml
-├── data/
-│   ├── bronze/
-│   ├── silver/
-│   └── gold/
-├── docs/
-│   └── NOTIFY_TEAM.md
-├── logs/
-│   └── pipeline_run.json
-├── src/
-├── tests/
-├── .env.example
-├── docker-compose.yml
-├── Makefile
-├── README.md
-└── requirements.txt
-```
+* Managed via `.env` and `.env.local`
+* Separate configurations for:
+
+  * Local
+  * Docker
+  * GitHub Actions
+* Secrets are never hard-coded
 
 ---
 
-## Production Mindset
+## Testing
 
-DATAFLOW-SENTINEL is treated as a **production-grade data pipeline**.
+* Tests located under `tests/`
+* Mirrors source structure for clarity
+* Uses **pytest**
 
-Failures are expected.
-Silent failures are unacceptable.
-Every failure must be **observable, explainable, and recoverable**.
+Tests validate:
+
+* Ingestion correctness
+* Schema and data quality enforcement
+* Storage behavior
+* Gold-layer aggregations and freshness logic
+
+Testing is enforced in CI to prevent regressions.
 
 ---
 
-## Final Note
+## Automation
 
-This repository represents how **real pipelines are built in small teams**:
+* **GitHub Actions**
 
-* Simple
-* Testable
-* Observable
-* Maintainable
+  * Scheduled daily pipeline runs
+  * CI checks on changes
+  * Email notifications for pipeline status
+
+* **Makefile**
+
+  * Standardized developer commands
+  * Abstracts local, Docker, and test workflows
+
+Automation ensures the pipeline behaves consistently across environments.
+
+---
+
+## Observability & Monitoring
+
+* Centralized structured logging (`logs/`)
+* Data freshness tracked via `data/gold/freshness.json`
+* Alerts triggered when:
+
+  * Pipeline fails
+  * Data becomes stale
+  * Expected outputs are missing
+
+Alerting and response procedures are defined in:
+
+📄 **NOTIFY_TEAM.md**
+
+---
+
+## Tech Stack
+
+**Languages**
+
+* Python
+
+**Core Libraries**
+
+* Pydantic
+* pandas
+* yfinance
+* SQLAlchemy
+* python-dotenv
+
+**Infrastructure & Tooling**
+
+* PostgreSQL (local & Neon)
+* Docker & Docker Compose
+* GitHub Actions
+* pytest
+* Makefile
+* Git & GitHub
+
+---
+
+## Design Decisions
+
+* **Medallion Architecture**
+  Improves data reliability, debuggability, and long-term scalability
+
+* **Pydantic Everywhere**
+  Strong schema guarantees and early failure detection
+
+* **Dockerized Execution**
+  Ensures reproducibility across local and CI environments
+
+* **CI Automation**
+  Pipelines should fail loudly and visibly, not silently
+
+These decisions reflect real-world DataOps practices.
+
+---
+
+## Limitations
+
+* No real-time or streaming ingestion
+* No dashboard visualization layer
+* Limited anomaly detection beyond freshness checks
+* Designed for clarity and correctness over raw throughput
+
+---
+
+## Future Improvements
+
+* Integrate real-time or streaming data sources
+* Persist Gold outputs to analytical databases or warehouses
+* Add volume and anomaly-based monitoring
+* Introduce dashboards (Grafana)
+* Expand alerting channels (Slack, Discord)
+
+---
+
+## License / Disclaimer
+
+This project is provided under the **MIT License**.

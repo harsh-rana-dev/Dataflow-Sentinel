@@ -1,128 +1,141 @@
-# DATAFLOW-SENTINEL
-## Pipeline Alerts & Response Guide
+# DATAFLOW-SENTINEL — Pipeline Alerts & Response Guide
 
-This document describes how the DATAFLOW-SENTINEL pipeline notifies maintainers about execution outcomes and how to respond to failures or data-related issues.
-
-The goal is to ensure timely awareness and predictable recovery actions.
+This document defines **when and how the DATAFLOW-SENTINEL pipeline notifies maintainers**, and the **standard response procedure** for pipeline failures or data quality issues.
 
 ---
 
-## 📌 Pipeline Overview
+## Alerting & Notification Overview
 
-- **Assets**: Equities & crypto (AAPL, SPY, BTC-USD, TSLA)
-- **Source**: Yahoo Finance
-- **Layers**:
-  - **Bronze** → Raw CSV ingestion
-  - **Silver** → Validated & cleaned data (CSV + PostgreSQL)
-  - **Gold** → Aggregates & data freshness monitoring
-- **Schedule**: Daily via GitHub Actions
+Email notifications are sent via **GitHub Actions** for the following events:
 
----
+* ✅ Pipeline run successful
+* ❌ Pipeline run failed
 
-## 🔔 Notification Summary
+**Notes**
 
-The DATAFLOW-SENTINEL pipeline sends **email notifications** upon pipeline completion.
-
-Notifications are sent when:
-- The pipeline completes successfully
-- The pipeline fails during execution
-
-Skipped runs do **not** trigger notifications.
-
-Emails are intentionally minimal and include only high-level status information.  
-Detailed logs and artifacts remain available in GitHub Actions.
+* Notifications are intentionally minimal and mobile-friendly
+* Full logs and artifacts remain available in GitHub Actions
 
 ---
 
-## 🚨 When to Notify
+## 🚨 When to Notify the Team
 
-Notify the pipeline owner or on-call maintainer if **any** of the following occur:
+Notify the pipeline owner or on-call maintainer if **any** of the following conditions occur:
 
-- Pipeline execution fails (non-zero exit)
-- `data/gold/data_freshness.json` reports:
-  - `"is_stale": true`
-- No new bronze or silver files are generated for **two consecutive scheduled runs**
-- Gold aggregates (`data/gold/aggregates.csv`) are missing or empty
+* Pipeline execution fails
+
+* `data/gold/freshness.json` reports:
+
+  ```json
+  {"status": "STALE"}
+  ```
+
+* No new Bronze or Silver outputs for **two consecutive scheduled runs**
+
+* `data/gold/aggregates.csv` is missing, empty, or not updated
 
 ---
 
-## 🔍 Initial Checks (Run in Order)
+## 🔍 Initial Checks (Follow in Order)
 
 1. **GitHub Actions**
-   - Open the workflow run associated with the failure
-   - Inspect step-level logs and failure messages
 
-2. **Pipeline Logs**
-   - Review `logs/pipeline_run.json`
-   - Identify ingestion, validation, storage, or gold-layer errors
+   * Open the failed workflow run
+   * Inspect step-level logs and failure messages
 
-3. **Source Availability**
-   - Verify Yahoo Finance availability
-   - Confirm whether markets were open for the expected date
+2. **Local Reproduction**
 
-4. **Data Artifacts**
-   - Check for newly created files in:
-     - `data/bronze/`
-     - `data/silver/`
-     - `data/gold/`
+   * Run one of the following:
 
-5. **Database (if enabled)**
-   - Confirm PostgreSQL connectivity
-   - Check for connection, authentication, or insert errors
+     ```bash
+     make test
+     make docker_test
+     ```
 
----
+   * Confirm whether the failure reproduces locally
 
-## ⚠️ Expected Non-Critical Issues
+3. **Pipeline Logs**
 
-The following conditions do **not** require escalation unless they persist:
+   * Inspect log outputs under:
 
-- Market holidays or non-trading days
-- Temporary Yahoo Finance API rate limits
-- Partial asset failure (one symbol missing while others succeed)
+     * `logs/`
+     * `logs/pipeline_run.json`
+
+4. **Source Availability**
+
+   * Verify Yahoo Finance availability
+   * Check for market holidays, API downtime, or symbol delistings
+
+5. **Database Health**
+
+   * Confirm the database service is running
+   * Check for connection, authentication, or insertion errors
 
 ---
 
 ## 🛠️ Recovery Actions
 
-- **Ingestion failure**
-  - Re-run the pipeline using the GitHub Actions manual trigger
-  - Inspect upstream API responses for schema or format changes
+### Ingestion Failures
 
-- **Validation failure**
-  - Inspect malformed bronze CSV files
-  - Verify expected schema and required columns
+* Re-run the pipeline via GitHub Actions (manual trigger)
+* Or execute locally:
 
-- **Gold layer failure**
-  - Confirm silver-layer completeness
-  - Recompute gold aggregates if required
+  ```bash
+  make run
+  make docker_run
+  ```
+
+### Validation Failures
+
+* Inspect malformed Bronze-layer CSV files
+* Confirm no upstream schema or format changes occurred
+
+### Gold Layer Failures
+
+* Verify Silver-layer completeness
+* Recompute aggregates after resolving upstream issues
+
+### Environment / Docker Issues
+
+* Reset the environment:
+
+  ```bash
+  make docker_clean
+  make docker_all
+  ```
+
+**Notes**
+
+* The pipeline supports **local**, **Docker**, and **GitHub Actions** execution
+* Local and Docker commands are documented in the `Makefile`
+* GitHub Actions runs are executed on a schedule
 
 ---
 
-## 🚩 Escalation Policy
+## ✅ Healthy Run Signals
 
-Escalate if **any** of the following persist:
+A healthy pipeline execution produces:
 
-- Data freshness remains stale for **more than 48 hours**
-- Pipeline fails for **two consecutive scheduled runs**
-- Gold aggregates are outdated and consumed downstream
+* New files in `data/bronze/` and `data/silver/`
+* Updated `data/gold/aggregates.csv`
+* `data/gold/freshness.json` reporting:
 
-**Escalation actions may include:**
-- Notifying stakeholders
-- Pausing dependent analytics or reports
-- Documenting root cause and resolution after recovery
+  ```json
+  {"status": "FRESH"}
+  ```
 
----
+**Environment Mapping**
 
-## 🚫 Out of Scope
-
-This document does not cover:
-- Infrastructure outages outside the pipeline scope
-- Long-term schema migrations
-- Upstream data provider contract or policy changes
+* Local run → Neon PostgreSQL
+* Docker run → Local PostgreSQL container
+* GitHub Actions run → Neon PostgreSQL
 
 ---
 
-## ✅ Ownership Statement
+## 🧾 Ownership Statement
 
-DATAFLOW-SENTINEL is treated as a production-grade data pipeline.  
-Failures are expected — **unhandled failures are not**.
+DATAFLOW-SENTINEL is treated as a **production-grade data pipeline**.
+
+Failures are expected.
+
+**Silent or unhandled failures are not acceptable.**
