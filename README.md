@@ -23,7 +23,7 @@ DATAFLOW-SENTINEL follows a **Medallion Architecture**:
 
 The pipeline is orchestrated centrally and runs identically across **local**, **Docker**, and **GitHub Actions** environments.
 
-📄 Detailed design: see **ARCHITECTURE.md**
+📄 Detailed design: see **docs/ARCHITECTURE.md**
 
 ---
 
@@ -184,7 +184,7 @@ Automation ensures the pipeline behaves consistently across environments.
 
 Alerting and response procedures are defined in:
 
-📄 **NOTIFY_TEAM.md**
+📄 **docs/NOTIFY_TEAM.md**
 
 ---
 

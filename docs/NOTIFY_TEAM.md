@@ -59,7 +59,7 @@ Notify the pipeline owner or on-call maintainer if **any** of the following cond
    * Inspect log outputs under:
 
      * `logs/`
-     * `logs/pipeline_run.json`
+     * `logs/pipeline.json`
 
 4. **Source Availability**
 
