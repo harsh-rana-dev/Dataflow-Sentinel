@@ -2,10 +2,10 @@ from pathlib import Path
 import json
 import pandas as pd
 import pytest
-from datetime import datetime, timezone
 import src.gold_metrics as gold
 
-# # Provides a representative sample of Silver-layer data for testing
+
+# Provides a representative sample of Silver-layer data for testing
 @pytest.fixture
 def fake_silver_df():
     return pd.DataFrame({
@@ -15,7 +15,8 @@ def fake_silver_df():
         "volume": [900000, 1000000, 500000],
     })
 
-# # Sets up isolated temporary directories and mocks the data loader
+
+# Sets up isolated temporary directories and mocks the data loader
 @pytest.fixture
 def isolated_gold_env(tmp_path, monkeypatch, fake_silver_df):
     silver_dir = tmp_path / "silver"
@@ -23,59 +24,76 @@ def isolated_gold_env(tmp_path, monkeypatch, fake_silver_df):
     silver_dir.mkdir()
     gold_dir.mkdir()
 
-    # We mock the loader to return our dataframe instead of reading from disk
-    monkeypatch.setattr(gold, "load_all_silver_data", lambda silver_dir: fake_silver_df)
+    # IMPORTANT FIX:
+    # Accept *args, **kwargs to support optional logger parameter
+    monkeypatch.setattr(
+        gold,
+        "load_all_silver_data",
+        lambda *args, **kwargs: fake_silver_df
+    )
 
     return silver_dir, gold_dir
 
-# # Verifies that the Gold layer correctly generates both CSV and JSON artifacts
+
+# Verifies that the Gold layer correctly generates both CSV and JSON artifacts
 def test_gold_creates_output_files(isolated_gold_env):
     silver_dir, gold_dir = isolated_gold_env
-    
-    # IMPROVEMENT: Calling with explicit path injection
+
     gold.run_gold_layer(silver_dir=silver_dir, gold_dir=gold_dir)
 
     assert (gold_dir / "aggregates.csv").exists()
     assert (gold_dir / "freshness.json").exists()
 
-# # Ensures the calculated metrics (averages, latest price) are accurate and formatted correctly
+
+# Ensures the calculated metrics (averages, latest price) are accurate
 def test_gold_aggregates_schema_and_values(isolated_gold_env):
     silver_dir, gold_dir = isolated_gold_env
+
     gold.run_gold_layer(silver_dir, gold_dir)
 
     df = pd.read_csv(gold_dir / "aggregates.csv")
+
     expected_columns = {
-        "symbol", "latest_date", "latest_close", 
-        "avg_7d_close", "avg_30d_close", "latest_volume"
+        "symbol",
+        "latest_date",
+        "latest_close",
+        "avg_7d_close",
+        "avg_30d_close",
+        "latest_volume",
     }
 
     assert expected_columns.issubset(df.columns)
-    assert df[df["symbol"] == "AAPL"]["latest_close"].iloc[0] == 150.0
-    # Check if 7d average is correctly calculated ( (145+150)/2 )
-    assert df[df["symbol"] == "AAPL"]["avg_7d_close"].iloc[0] == 147.5
 
-# # Validates the freshness JSON structure and status logic
+    aapl = df[df["symbol"] == "AAPL"].iloc[0]
+
+    assert aapl["latest_close"] == 150.0
+    assert aapl["avg_7d_close"] == 147.5
+
+
+# Validates the freshness JSON structure and status logic
 def test_gold_freshness_contract(isolated_gold_env):
     silver_dir, gold_dir = isolated_gold_env
+
     gold.run_gold_layer(silver_dir, gold_dir)
 
     with open(gold_dir / "freshness.json") as f:
         data = json.load(f)
 
     assert set(data.keys()) == {"AAPL", "BTC-USD"}
-    
-    # IMPROVEMENT: Updated keys to match the new src/gold_metrics.py implementation
+
     for symbol in data:
         payload = data[symbol]
+
         assert "last_date" in payload
         assert "days_stale" in payload
         assert "status" in payload
         assert payload["status"] in ["FRESH", "STALE"]
 
-# # IMPROVEMENT: Added test for the "Empty Silver Layer" exception
+
+# Added test for Empty Silver Layer exception
 def test_gold_raises_error_on_missing_files(tmp_path):
     empty_dir = tmp_path / "empty"
     empty_dir.mkdir()
-    
+
     with pytest.raises(FileNotFoundError, match="Empty Silver Layer"):
         gold.load_all_silver_data(empty_dir)
