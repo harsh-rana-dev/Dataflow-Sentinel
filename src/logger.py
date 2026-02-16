@@ -6,9 +6,7 @@ from typing import Optional
 
 
 class JsonFormatter(logging.Formatter):
-    """
-    Formats log records into JSON for cloud-native observability.
-    """
+
 
     def format(self, record: logging.LogRecord) -> str:
         log_record = {
@@ -47,9 +45,7 @@ def get_logger(
     log_dir: Path = Path("logs"),
     run_id: Optional[str] = None,
 ) -> logging.Logger:
-    """
-    Configures a dual-handler logger for console output and JSON file storage.
-    """
+
 
     logger = logging.getLogger(name)
 

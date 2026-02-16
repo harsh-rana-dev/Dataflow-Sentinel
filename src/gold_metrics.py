@@ -9,7 +9,7 @@ from src.logger import get_logger
 # Loads all available silver files to create a unified dataset for analysis
 def load_all_silver_data(
     silver_dir: Path,
-    logger: Optional[object] = None   # ✅ NOW OPTIONAL
+    logger: Optional[object] = None  
 ) -> pd.DataFrame:
 
     if logger is None:

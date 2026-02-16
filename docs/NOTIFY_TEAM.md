@@ -1,140 +1,238 @@
 # DATAFLOW-SENTINEL — Pipeline Alerts & Response Guide
 
-This document defines **when and how the DATAFLOW-SENTINEL pipeline notifies maintainers**, and the **standard response procedure** for pipeline failures or data quality issues.
+This document defines the **alerting behavior, failure conditions, and operational response procedures** for the Dataflow Sentinel pipeline.
+
+It functions as a lightweight **runbook** for maintainers and reflects production-oriented operational standards.
 
 ---
 
-## Alerting & Notification Overview
+## 1. Alerting & Notification Overview
 
-Email notifications are sent via **GitHub Actions** for the following events:
+Pipeline notifications are triggered via **GitHub Actions workflows**.
 
-* ✅ Pipeline run successful
-* ❌ Pipeline run failed
+Email alerts are sent for the following events:
 
-**Notes**
+* ✅ Successful scheduled run
+* ❌ Failed scheduled run
 
-* Notifications are intentionally minimal and mobile-friendly
-* Full logs and artifacts remain available in GitHub Actions
+### Design Principles
+
+* Alerts are intentionally minimal and mobile-friendly
+* Detailed logs and artifacts are available within GitHub Actions
+* Failures must always be actionable
+* Silent failures are unacceptable
 
 ---
 
-## 🚨 When to Notify the Team
+## 2. 🚨 Alert Conditions
 
-Notify the pipeline owner or on-call maintainer if **any** of the following conditions occur:
+The pipeline owner or on-call maintainer must investigate immediately if any of the following occur:
 
-* Pipeline execution fails
+### 2.1 Execution Failure
 
-* `data/gold/freshness.json` reports:
+* GitHub Actions workflow fails
+* Unhandled exception during pipeline run
+* Non-zero exit status
 
-  ```json
-  {"status": "STALE"}
-  ```
+---
+
+### 2.2 Data Freshness Violation
+
+If `data/gold/freshness.json` reports:
+
+```json
+{"status": "STALE"}
+```
+
+This indicates:
+
+* Upstream ingestion delay
+* Market holiday or source outage
+* Validation failure preventing promotion
+* Pipeline regression
+
+---
+
+### 2.3 Missing Layer Updates
+
+If either condition occurs:
 
 * No new Bronze or Silver outputs for **two consecutive scheduled runs**
+* `data/gold/aggregates.csv` missing, empty, or unchanged
 
-* `data/gold/aggregates.csv` is missing, empty, or not updated
-
----
-
-## 🔍 Initial Checks (Follow in Order)
-
-1. **GitHub Actions**
-
-   * Open the failed workflow run
-   * Inspect step-level logs and failure messages
-
-2. **Local Reproduction**
-
-   * Run one of the following:
-
-     ```bash
-     make test
-     make docker_test
-     ```
-
-   * Confirm whether the failure reproduces locally
-
-3. **Pipeline Logs**
-
-   * Inspect log outputs under:
-
-     * `logs/`
-     * `logs/pipeline.json`
-
-4. **Source Availability**
-
-   * Verify Yahoo Finance availability
-   * Check for market holidays, API downtime, or symbol delistings
-
-5. **Database Health**
-
-   * Confirm the database service is running
-   * Check for connection, authentication, or insertion errors
+This signals possible ingestion failure or blocked promotion.
 
 ---
 
-## 🛠️ Recovery Actions
+## 3. 🔍 Incident Response Procedure
 
-### Ingestion Failures
+Follow the steps in order.
 
-* Re-run the pipeline via GitHub Actions (manual trigger)
-* Or execute locally:
+---
 
-  ```bash
-  make run
-  make docker_run
-  ```
+### Step 1 — Inspect GitHub Actions
 
-### Validation Failures
+* Open the failed workflow run
+* Review step-level logs
+* Identify the failing module (Ingestion, Validation, Storage, or Metrics)
+
+Do not rerun blindly without reviewing logs.
+
+---
+
+### Step 2 — Attempt Local Reproduction
+
+Run:
+
+```bash
+make test
+make docker_test
+```
+
+If the issue reproduces locally, the root cause is deterministic.
+
+If not, investigate environment-specific differences.
+
+---
+
+### Step 3 — Inspect Pipeline Logs
+
+Review structured logs under:
+
+* `logs/`
+* `logs/pipeline.json`
+
+Focus on:
+
+* Tracebacks
+* Validation errors
+* Storage write failures
+* Data volume anomalies
+
+---
+
+### Step 4 — Verify Source Availability
+
+Check:
+
+* Yahoo Finance availability
+* Market holidays
+
+If the external source is unavailable, document the incident and monitor next scheduled run.
+
+---
+
+### Step 5 — Verify Database Health
+
+Confirm:
+
+* PostgreSQL service is running
+* Credentials are valid
+* Connection pool is functional
+* No insertion conflicts or schema drift
+
+Environment mapping:
+
+* Local → Neon PostgreSQL
+* Docker → Local PostgreSQL container
+* GitHub Actions → Neon PostgreSQL
+
+---
+
+## 4. 🛠️ Recovery Actions
+
+Recovery actions depend on failure classification.
+
+---
+
+### 4.1 Ingestion Failures
+
+If ingestion fails:
+
+* Manually re-run via GitHub Actions
+  OR
+* Execute locally:
+
+```bash
+make run
+make docker_run
+```
+
+Verify Bronze output is regenerated.
+
+---
+
+### 4.2 Validation Failures
+
+If validation blocks promotion:
 
 * Inspect malformed Bronze-layer CSV files
-* Confirm no upstream schema or format changes occurred
+* Check for upstream schema changes
+* Confirm required fields remain present
+* Review Pydantic schema enforcement rules
 
-### Gold Layer Failures
-
-* Verify Silver-layer completeness
-* Recompute aggregates after resolving upstream issues
-
-### Environment / Docker Issues
-
-* Reset the environment:
-
-  ```bash
-  make docker_clean
-  make docker_all
-  ```
-
-**Notes**
-
-* The pipeline supports **local**, **Docker**, and **GitHub Actions** execution
-* Local and Docker commands are documented in the `Makefile`
-* GitHub Actions runs are executed on a schedule
+Never bypass validation without understanding the cause.
 
 ---
 
-## ✅ Healthy Run Signals
+### 4.3 Gold Layer Failures
 
-A healthy pipeline execution produces:
+If metrics or aggregation fails:
 
-* New files in `data/bronze/` and `data/silver/`
+* Confirm Silver completeness
+* Recompute aggregates after upstream resolution
+* Validate freshness logic
+
+Gold failures are usually downstream symptoms.
+
+---
+
+### 4.4 Docker / Environment Failures
+
+If containerization fails:
+
+```bash
+make docker_clean
+make docker_all
+```
+
+Rebuild environment to eliminate stale state.
+
+---
+
+## 5. ✅ Healthy Run Signals
+
+A successful pipeline execution produces:
+
+* New files in `data/bronze/`
+* Validated outputs in `data/silver/`
 * Updated `data/gold/aggregates.csv`
 * `data/gold/freshness.json` reporting:
 
-  ```json
-  {"status": "FRESH"}
-  ```
+```json
+{"status": "FRESH"}
+```
 
-**Environment Mapping**
+Additionally:
 
-* Local run → Neon PostgreSQL
-* Docker run → Local PostgreSQL container
-* GitHub Actions run → Neon PostgreSQL
+* Logs show deterministic execution flow
+* No validation errors
+* No skipped assets
+* GitHub Actions status: **Success**
 
 ---
 
-## 🧾 Ownership Statement
+## 6. Operational Philosophy
 
-DATAFLOW-SENTINEL is treated as a **production-grade data pipeline**.
+Dataflow Sentinel is treated as a **production-inspired data pipeline**.
+
+Principles:
+
+* Fail fast
+* Never silently ignore corruption
+* Validate before promotion
+* Prefer reproducibility over convenience
+* Re-runs must be safe (idempotency guaranteed)
 
 Failures are expected.
 
