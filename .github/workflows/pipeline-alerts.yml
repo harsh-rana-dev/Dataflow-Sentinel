@@ -31,8 +31,9 @@ jobs:
             Branch: ${{ github.event.workflow_run.head_branch }}
             Commit: ${{ github.event.workflow_run.head_sha }}
 
-            Run URL:
+            Workflow URL:
             ${{ github.event.workflow_run.html_url }}
+            This is an automated notification from the Sentinel pipeline workflow.
 
           to: ${{ secrets.EMAIL_TO }}
           from: GitHub Actions <${{ secrets.EMAIL_USER }}>
