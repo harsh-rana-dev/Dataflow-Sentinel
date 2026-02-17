@@ -33,6 +33,7 @@ jobs:
 
             Workflow URL:
             ${{ github.event.workflow_run.html_url }}
+            
             This is an automated notification from the Sentinel pipeline workflow.
 
           to: ${{ secrets.EMAIL_TO }}
