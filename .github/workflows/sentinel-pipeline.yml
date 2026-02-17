@@ -3,41 +3,54 @@ name: Sentinel Pipeline
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 11 * * *" # 5:15 PM IST
+    - cron: "30 11 * * *" # 5:00 PM IST
+
+concurrency:
+  group: sentinel-pipeline
+  cancel-in-progress: false
 
 jobs:
   run-pipeline:
+    name: Run Data Pipeline
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: 'pip'
+          cache: pip
 
       - name: Install dependencies
         run: |
+          set -e
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Run tests
         env:
-          TESTING: "1" 
-        run: python -m pytest -v tests/
+          TESTING: "1"
+        run: |
+          set -e
+          python -m pytest -v tests/
 
       - name: Run pipeline
-        if: success() 
+        if: success()
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-        run: python -m src.pipeline
+        run: |
+          set -e
+          python -m src.pipeline
 
-      - name: Upload logs
-        if: always() 
+      - name: Upload logs artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: pipeline-logs
           path: logs/*.json
+          if-no-files-found: warn

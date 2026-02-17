@@ -1,0 +1,39 @@
+name: Sentinel Pipeline Alerts
+
+on:
+  workflow_run:
+    workflows: ["Sentinel Pipeline"]
+    types:
+      - completed
+
+jobs:
+  notify:
+    name: Send Pipeline Notification
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion != 'skipped' }}
+
+    steps:
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USER }}
+          password: ${{ secrets.EMAIL_PASS }}
+          subject: >
+            ${{ github.event.workflow_run.conclusion == 'success' && 
+            '✅ Sentinel Pipeline Successful' || 
+            '❌ Sentinel Pipeline Failed' }}
+          body: |
+            The Sentinel Pipeline workflow.
+            Status: ${{ github.event.workflow_run.conclusion }}
+
+            Branch: ${{ github.event.workflow_run.head_branch }}
+            Commit: ${{ github.event.workflow_run.head_sha }}
+
+            Run URL:
+            ${{ github.event.workflow_run.html_url }}
+
+            This notification was generated automatically.
+          to: ${{ secrets.EMAIL_TO }}
+          from: GitHub Actions <${{ secrets.EMAIL_USER }}>
