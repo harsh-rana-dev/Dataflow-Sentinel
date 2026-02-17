@@ -34,6 +34,5 @@ jobs:
             Run URL:
             ${{ github.event.workflow_run.html_url }}
 
-            This notification was generated automatically.
           to: ${{ secrets.EMAIL_TO }}
           from: GitHub Actions <${{ secrets.EMAIL_USER }}>

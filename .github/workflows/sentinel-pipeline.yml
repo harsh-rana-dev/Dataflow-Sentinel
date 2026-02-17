@@ -47,10 +47,13 @@ jobs:
           set -e
           python -m src.pipeline
 
-      - name: Upload logs artifact
+      - name: Upload pipeline artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: pipeline-logs
-          path: logs/*.json
+          name: sentinel-artifacts
+          path: |
+               logs/*.json
+               data/gold/aggregates.csv
+               data/gold/freshness.json
           if-no-files-found: warn
