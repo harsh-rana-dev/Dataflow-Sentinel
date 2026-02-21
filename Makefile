@@ -10,6 +10,8 @@ help:
 	@echo "  make clean          Remove local data artifacts"
 
 
+# local 
+
 install: requirements.txt
 	python -m pip install --upgrade pip
 	pip install -r requirements.txt
@@ -20,6 +22,13 @@ test:
 run:
 	python -m src.pipeline
 
+clean:
+	rm -rf data/bronze/*
+	rm -rf data/silver/*
+  # rm -rf data/gold/*
+
+
+# Docker
 
 docker_build:
 	docker compose build
@@ -33,10 +42,7 @@ docker_run: docker_build
 docker_all: docker_test docker_run
 
 docker_clean:
-	docker compose down --volumes --remove-orphans
-
-
-clean:
 	rm -rf data/bronze/*
 	rm -rf data/silver/*
   # rm -rf data/gold/*
+	docker compose down --volumes --remove-orphans
