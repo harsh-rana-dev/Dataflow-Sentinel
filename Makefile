@@ -10,7 +10,7 @@ help:
 	@echo "  make clean          Remove local data artifacts"
 
 
-# local 
+# local execution commands--
 
 install: requirements.txt
 	python -m pip install --upgrade pip
@@ -28,7 +28,7 @@ clean:
   # rm -rf data/gold/*
 
 
-# Docker
+# Docker execution commands--
 
 docker_build:
 	docker compose build
