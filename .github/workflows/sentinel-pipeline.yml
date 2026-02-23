@@ -43,6 +43,7 @@ jobs:
         if: success()
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
         run: |
           set -e
           python -m src.pipeline
