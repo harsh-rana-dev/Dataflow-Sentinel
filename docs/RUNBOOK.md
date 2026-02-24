@@ -86,11 +86,15 @@ Follow the steps in order.
 * Review step-level logs
 * Identify the failing module (Ingestion, Validation, Storage, or Metrics)
 
+![GitHub Actions Failure Example](images/github-ci.png)
+
 Do not rerun blindly without reviewing logs.
 
 ---
 
 ### Step 1A — Inspect Sentry (Runtime Errors)
+
+![Sentry Issue Dashboard](images/sentry-dashboard.png)
 
 If the pipeline fails due to an unhandled exception:
 
@@ -225,6 +229,8 @@ Gold failures are usually downstream symptoms.
 ### 4.4 Docker / Environment Failures
 
 If containerization fails:
+
+![Docker Runtime Example](images/docker-container.png)
 
 ```bash
 make docker_clean

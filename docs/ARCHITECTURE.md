@@ -19,6 +19,8 @@ The system is intentionally compact, but architected using production principles
 
 ## 2. High-Level Architecture
 
+![System Architecture](images/pipeline-architecture.png)
+
 ```
 External Data Source
         │
@@ -69,6 +71,8 @@ This guarantees **behavioral parity across environments**.
 ---
 
 ## 3. Data Layers (Medallion Architecture)
+
+![Medallion Architecture](images/medallion-architecture.webp)
 
 The pipeline follows the **Bronze → Silver → Gold** medallion pattern to ensure reliability and traceability.
 
