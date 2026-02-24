@@ -4,9 +4,9 @@ import json
 from pathlib import Path
 from typing import Optional
 
-
 class JsonFormatter(logging.Formatter):
-
+    # Class-level variable to store the run_id globally across all instances
+    _GLOBAL_RUN_ID: Optional[str] = None
 
     def format(self, record: logging.LogRecord) -> str:
         log_record = {
@@ -14,60 +14,44 @@ class JsonFormatter(logging.Formatter):
             "level": record.levelname,
             "logger": record.name,
             "message": record.getMessage(),
+            # Use the global ID if the specific record doesn't have one
+            "run_id": getattr(record, "run_id", self._GLOBAL_RUN_ID)
         }
-
-        # Inject run_id if present
-        if hasattr(record, "run_id"):
-            log_record["run_id"] = record.run_id
 
         if record.exc_info:
             log_record["exception"] = self.formatException(record.exc_info)
 
         return json.dumps(log_record)
 
-
-class RunIdFilter(logging.Filter):
-    """
-    Injects run_id into every log record.
-    """
-
-    def __init__(self, run_id: Optional[str] = None):
-        super().__init__()
-        self.run_id = run_id
-
-    def filter(self, record: logging.LogRecord) -> bool:
-        record.run_id = self.run_id
-        return True
-
-
 def get_logger(
     name: str = "pipeline",
     log_dir: Path = Path("logs"),
     run_id: Optional[str] = None,
 ) -> logging.Logger:
-
+    
+    # If a run_id is provided, update the global state
+    if run_id:
+        JsonFormatter._GLOBAL_RUN_ID = run_id
 
     logger = logging.getLogger(name)
 
+    # If logger already initialized, just update level/ID and return
     if logger.handlers:
         return logger
 
     level = os.getenv("LOG_LEVEL", "INFO").upper()
     logger.setLevel(level)
 
-    # Console Handler (Human Readable)
+    # Console Handler
     ch = logging.StreamHandler()
     ch.setFormatter(
         logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
     )
 
-    # File Handler (Machine Readable JSON)
+    # File Handler
     log_dir.mkdir(exist_ok=True)
     fh = logging.FileHandler(log_dir / "pipeline.json")
     fh.setFormatter(JsonFormatter())
-
-    # Inject run_id
-    logger.addFilter(RunIdFilter(run_id))
 
     logger.addHandler(ch)
     logger.addHandler(fh)
