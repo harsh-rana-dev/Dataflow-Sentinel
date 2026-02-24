@@ -196,7 +196,41 @@ Secrets.
 
 Operational response guide:
 
-📄 `docs/NOTIFY_TEAM.md`
+📄 `docs/RUNBOOK.md`
+
+---
+
+## Error Monitoring (Sentry)
+
+The pipeline integrates **Sentry** for real-time error tracking and release monitoring.
+
+While CI alerts notify on workflow failures, Sentry captures:
+
+* Unhandled runtime exceptions
+* Full stack traces with context
+* Commit-level release tracking
+
+This ensures that failures inside the pipeline are visible even outside CI logs.
+
+### How It Works
+
+* `src/monitoring.py` initializes Sentry at application startup
+* DSN is injected via environment variables
+* GitHub Actions attaches the current commit SHA as the release version
+* Errors are automatically reported on uncaught exceptions
+
+Monitoring is isolated from business logic to maintain clean architecture separation.
+
+### Environment Variables
+
+```
+SENTRY_DSN=
+ENV=development
+SENTRY_RELEASE=
+
+```
+
+Sentry is optional in local development and activates only when `SENTRY_DSN` is provided.
 
 ---
 
@@ -220,6 +254,7 @@ Operational response guide:
 * Docker & Docker Compose
 * GitHub Actions
 * pytest
+* Sentry
 * Makefile
 * Git & GitHub
 

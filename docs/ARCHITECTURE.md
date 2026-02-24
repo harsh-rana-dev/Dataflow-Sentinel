@@ -182,6 +182,30 @@ Future targets could include:
 
 ---
 
+### 4.7 Error Monitoring (`src/monitoring.py`)
+
+* Integrates **Sentry** for real-time runtime error tracking
+* Initialized at application startup inside `pipeline.py`
+* Isolated from business logic to preserve clean architecture
+* Automatically captures:
+
+  * Unhandled exceptions
+  * Stack traces
+  * Execution context
+  * Environment (local / Docker)
+
+Monitoring activation is controlled via environment variables:
+
+* `SENTRY_DSN`
+* `ENVIRONMENT`
+* `SENTRY_RELEASE`
+
+If `SENTRY_DSN` is not provided, monitoring remains disabled — ensuring safe local development.
+
+This layer enhances operational visibility beyond CI logs by providing persistent external error tracking.
+
+---
+
 ## 5. Configuration Management
 
 ### Assets Configuration (`config/assets.yaml`)
@@ -274,9 +298,10 @@ Removes manual command repetition.
 * Data freshness tracked via `freshness.json`
 * Structured logs for traceability
 * CI notifications for operational awareness
+* Sentry-based runtime error monitoring
 * Failure propagation prevents silent corruption
 
-The system reflects core **data reliability engineering** principles.
+The system reflects core **data reliability engineering** principles by combining logging, alerting, and external error tracking.
 
 ---
 

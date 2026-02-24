@@ -1,4 +1,4 @@
-# DATAFLOW-SENTINEL — Pipeline Alerts & Response Guide
+# DATAFLOW-SENTINEL — Operational Runbook
 
 This document defines the **alerting behavior, failure conditions, and operational response procedures** for the Dataflow Sentinel pipeline.
 
@@ -6,22 +6,32 @@ It functions as a lightweight **runbook** for maintainers and reflects productio
 
 ---
 
-## 1. Alerting & Notification Overview
+## 1. Alerting & Monitoring Overview
 
-Pipeline notifications are triggered via **GitHub Actions workflows**.
+Pipeline health signals are surfaced through multiple monitoring layers:
 
-Email alerts are sent for the following events:
+* GitHub Actions (CI execution status)
+* Email notifications (success / failure)
+* Sentry (runtime exception tracking)
+
+Email alerts are triggered for:
 
 * ✅ Successful scheduled run
 * ❌ Failed scheduled run
+
+Sentry captures:
+
+* Unhandled runtime exceptions
+* Full stack traces
+* Environment context (local / Docker)
 
 ### Design Principles
 
 * Alerts are intentionally minimal and mobile-friendly
 * Detailed logs and artifacts are available within GitHub Actions
+* Runtime errors are persisted externally via Sentry
 * Failures must always be actionable
 * Silent failures are unacceptable
-
 ---
 
 ## 2. 🚨 Alert Conditions
@@ -77,6 +87,31 @@ Follow the steps in order.
 * Identify the failing module (Ingestion, Validation, Storage, or Metrics)
 
 Do not rerun blindly without reviewing logs.
+
+---
+
+### Step 1A — Inspect Sentry (Runtime Errors)
+
+If the pipeline fails due to an unhandled exception:
+
+1. Open the Sentry dashboard
+2. Locate the most recent event
+3. Inspect:
+
+   * Stack trace
+   * Affected module
+
+Sentry provides:
+
+* Faster root cause identification
+* Persistent error history across runs
+* Aggregated recurring failure insights
+
+If no Sentry event exists:
+
+* Confirm `SENTRY_DSN` is configured
+* Verify environment variable injection in CI
+* Ensure monitoring initialization executes before pipeline logic
 
 ---
 
@@ -233,6 +268,7 @@ Principles:
 * Validate before promotion
 * Prefer reproducibility over convenience
 * Re-runs must be safe (idempotency guaranteed)
+* Runtime errors must be observable (CI + Sentry)
 
 Failures are expected.
 
