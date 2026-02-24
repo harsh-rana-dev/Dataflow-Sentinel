@@ -52,7 +52,7 @@ It simulates a production-grade DataOps project in a compact, readable system.
 
 ### Medallion Data Model
 
-![Medallion Architecture](docs/images/medallion-architecture.png)
+![Medallion Architecture](docs/images/medallion-architecture.webp)
 
 
 The pipeline follows a **Medallion Architecture**:
