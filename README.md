@@ -6,7 +6,12 @@ Production-Inspired DataOps Pipeline with Freshness Monitoring & CI Alerting
 
 ## Overview
 
-**DATAFLOW-SENTINEL** is a production-inspired data pipeline that ingests financial market data, validates schema and quality, promotes it through a **Bronze → Silver → Gold** architecture, and continuously monitors data freshness.
+**DATAFLOW-SENTINEL** > A production-inspired DataOps pipeline that ingests financial market data, validates schema integrity, promotes datasets through a Medallion Architecture, and enforces freshness monitoring via CI-based alerting.
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![CI](https://img.shields.io/badge/CI-GitHub_Actions-success)
+![Docker](https://img.shields.io/badge/Containerized-Docker-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 Modern pipelines often *run* but silently degrade — schemas drift, data becomes stale, and failures go unnoticed.
 
@@ -35,11 +40,20 @@ This project demonstrates:
 * CI-driven monitoring and alerting
 * Environment parity (Local ↔ Docker ↔ CI)
 
-It simulates production-grade DataOps project in a compact, readable system.
+It simulates a production-grade DataOps project in a compact, readable system.
 
 ---
 
 ## Architecture
+
+### System Architecture
+
+![Pipeline Architecture](docs/images/pipeline-architecture.png)
+
+### Medallion Data Model
+
+![Medallion Architecture](docs/images/medallion-architecture.png)
+
 
 The pipeline follows a **Medallion Architecture**:
 
@@ -79,6 +93,9 @@ No silent degradation.
 ---
 
 ## Project Structure
+
+![Project Structure](docs/images/project-structure.png)
+
 
 ```
 src/        Core pipeline logic (ingestion, validation, storage, metrics)
@@ -120,6 +137,10 @@ The structure enforces strict separation of concerns and stage isolation.
    * Writes `freshness.json`
    * Triggers CI-based email alerts when needed
 
+### Gold Layer Output Example (freshness Artifact)
+
+![Gold Files](docs/images/gold-freshness.png)
+
 ---
 
 ## How to Run
@@ -140,6 +161,8 @@ Uses environment variables defined in `.env`.
 make docker_run
 ```
 
+![Docker Run](docs/images/docker-container.png)
+
 Runs the pipeline in a containerized environment with local PostgreSQL.
 
 ---
@@ -150,6 +173,8 @@ Runs the pipeline in a containerized environment with local PostgreSQL.
 * Manual workflow dispatch
 * Executes tests before pipeline
 * Sends email notifications on success or failure
+
+![GitHub CI](docs/images/github-ci.png)
 
 ---
 
@@ -203,6 +228,8 @@ Operational response guide:
 ## Error Monitoring (Sentry)
 
 The pipeline integrates **Sentry** for real-time error tracking and release monitoring.
+
+![Sentry Dashboard](docs/images/sentry-dashboard.png)
 
 While CI alerts notify on workflow failures, Sentry captures:
 
@@ -286,6 +313,14 @@ Sentry is optional in local development and activates only when `SENTRY_DSN` is 
 * Add anomaly-based monitoring
 * Integrate observability dashboards (Grafana)
 * Expand alert channels (Slack / Discord)
+
+---
+
+## Final Note
+
+This project prioritizes reliability, validation, and operational discipline over scale.
+It is intentionally designed to reflect how real-world data systems fail —
+and how they should be protected.
 
 ---
 
