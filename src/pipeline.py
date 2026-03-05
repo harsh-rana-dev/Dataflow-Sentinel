@@ -14,7 +14,7 @@ from src.gold_metrics import run_gold_layer
 from src.logger import get_logger
 
 
-# Initialize monitoring as early as possible
+# Initialize monitoring
 init_monitoring()
 
 
@@ -36,7 +36,7 @@ TICKERS = config["assets"]
 
 
 def run_pipeline() -> None:
-    # Fix Run ID
+    # Run ID
     run_id = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
     set_run_context(run_id)
 
