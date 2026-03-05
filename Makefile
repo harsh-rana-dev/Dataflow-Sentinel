@@ -25,7 +25,7 @@ run:
 clean:
 	rm -rf data/bronze/*
 	rm -rf data/silver/*
-  # rm -rf data/gold/*
+	rm -rf data/gold/*
 
 
 # Docker execution commands--
@@ -44,5 +44,5 @@ docker_all: docker_test docker_run
 docker_clean:
 	rm -rf data/bronze/*
 	rm -rf data/silver/*
-  # rm -rf data/gold/*
+	rm -rf data/gold/*
 	docker compose down --volumes --remove-orphans
