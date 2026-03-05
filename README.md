@@ -145,6 +145,12 @@ The structure enforces strict separation of concerns and stage isolation.
 
 ## How to Run
 
+### Installation
+
+```bash
+install -r requirements.txt
+```
+
 ### Local
 
 ```bash
