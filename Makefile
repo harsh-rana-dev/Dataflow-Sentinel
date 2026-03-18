@@ -1,4 +1,4 @@
-.PHONY: help install run test clean docker_build docker_test docker_run docker_all docker_clean
+.PHONY: help install run test clean docker_build docker_test docker_run docker_clean docker_all
 
 help:
 	@echo "Available commands:"
@@ -39,10 +39,11 @@ docker_test: docker_build
 docker_run: docker_build
 	docker compose run --rm pipeline
 
-docker_all: docker_test docker_run
-
 docker_clean:
 	rm -rf data/bronze/*
 	rm -rf data/silver/*
 	rm -rf data/gold/*
 	docker compose down --volumes --remove-orphans
+
+
+docker_all: docker_test docker_run docker_clean
