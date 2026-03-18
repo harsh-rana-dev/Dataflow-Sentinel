@@ -54,7 +54,8 @@ jobs:
         with:
           name: sentinel-artifacts
           path: |
-               logs/*.json
-               data/gold/aggregates.csv
-               data/gold/freshness.json
+            logs/*.json
+            data/gold/aggregates.csv
+            data/gold/freshness.json
+          retention-days: 5
           if-no-files-found: warn
