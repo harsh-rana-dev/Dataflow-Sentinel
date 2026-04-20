@@ -54,7 +54,7 @@ def ingest_all_assets(
     start_date: str,
     end_date: str,
     bronze_dir: Path,
-    run_id: Optional[str] = None,   # ✅ NOW OPTIONAL
+    run_id: Optional[str] = None,
 ) -> List[str]:
 
     # ✅ Backward compatibility for tests
