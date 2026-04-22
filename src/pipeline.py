@@ -36,7 +36,6 @@ TICKERS = config["assets"]
 
 
 def run_pipeline() -> None:
-    1 / 0
     run_id = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
     set_run_context(run_id)
 
