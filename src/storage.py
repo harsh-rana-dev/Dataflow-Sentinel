@@ -19,7 +19,7 @@ _engine: Optional[object] = None
 
 # # Configures the database connection
 def get_engine():
-    if os.getenv("TESTING") == "1":
+    if os.getenv("development") == "1":
         logger.info("Using in-memory SQLite database for testing")
         return create_engine("sqlite:///:memory:", echo=False)
 
