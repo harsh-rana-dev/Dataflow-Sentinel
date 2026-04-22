@@ -1,23 +1,32 @@
 import os
 import sentry_sdk
+import logging
+from sentry_sdk.integrations.logging import LoggingIntegration
+
 
 def init_monitoring() -> None:
     """
     Initialize Sentry with performance tracking and environment context.
     """
     dsn = os.getenv("SENTRY_DSN")
-    if not dsn:
+
+    # Optional: disable Sentry during tests
+    if not dsn or os.getenv("ENV") == "TESTING":
         return
+
+    sentry_logging = LoggingIntegration(
+        level=logging.INFO,       
+        event_level=logging.ERROR  
+    )
 
     sentry_sdk.init(
         dsn=dsn,
-        environment=os.getenv("ENV", "TESTING"),
-        # Set traces_sample_rate to 1.0 to capture 100%
-        # of transactions for performance monitoring.
+        environment=os.getenv("ENV", "development"),
+        integrations=[sentry_logging],
         traces_sample_rate=1.0,
-        # Enable capturing log messages as breadcrumbs
         attach_stacktrace=True,
     )
+
 
 def set_run_context(run_id: str) -> None:
     """
@@ -26,7 +35,7 @@ def set_run_context(run_id: str) -> None:
     """
     sentry_sdk.set_tag("run_id", run_id)
     sentry_sdk.add_breadcrumb(
-        category='pipeline',
-        message=f'Starting pipeline execution for run_id: {run_id}',
-        level='info',
+        category="pipeline",
+        message=f"Starting pipeline execution for run_id: {run_id}",
+        level="info",
     )

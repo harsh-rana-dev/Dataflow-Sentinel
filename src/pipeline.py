@@ -36,7 +36,6 @@ TICKERS = config["assets"]
 
 
 def run_pipeline() -> None:
-    # Run ID
     run_id = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
     set_run_context(run_id)
 
@@ -112,7 +111,6 @@ def run_pipeline() -> None:
             )
 
         except Exception as exc:
-            # -------- FAILURE MESSAGE --------
             logger.critical("Pipeline execution failed", exc_info=exc)
             sentry_sdk.capture_exception(exc)
             sentry_sdk.capture_message(
@@ -125,5 +123,8 @@ def run_pipeline() -> None:
 if __name__ == "__main__":
     try:
         run_pipeline()
+    except Exception as e:                    
+        sentry_sdk.capture_exception(e)      
+        raise
     finally:
-        sentry_sdk.flush(timeout=5)
+        sentry_sdk.flush(timeout=5)          
