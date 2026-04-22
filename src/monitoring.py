@@ -11,7 +11,7 @@ def init_monitoring() -> None:
 
     sentry_sdk.init(
         dsn=dsn,
-        environment=os.getenv("ENV", "development"),
+        environment=os.getenv("ENV", "TESTING"),
         # Set traces_sample_rate to 1.0 to capture 100%
         # of transactions for performance monitoring.
         traces_sample_rate=1.0,
